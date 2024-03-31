@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://odg8bx21fwk6"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 2
+stretch_mode = 3

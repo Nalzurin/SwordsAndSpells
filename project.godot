@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SwordsAndSpells"
+run/main_scene="res://Scenes/LoadingScreen.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AssetManager="*res://Scripts/AssetManager.cs"
+Logger="*res://Scripts/Debug/Logger.cs"
+
+[dotnet]
+
+project/assembly_name="SwordsAndSpells"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Assets>
+  <BiomeAsset>
+	<ID>Biome_Ocean</ID>
+	<Name>Ocean</Name>
+	<Description>The ocean is a massive body of saltwater covering most of the Earth's surface. It's home to countless plants and animals, ranging from tiny plankton to enormous whales.</Description>
+	<MoistureRange type="array">
+	  <value>0.9</value>
+	  <value>0.1</value>
+	</MoistureRange>
+	<TemperatureRange type="array">
+	  <value>0</value>
+	  <value>1</value>
+	</TemperatureRange>
+	<priority>1</priority>
+	<Texture>Assets/Sprites/Biomes/Ocean.png</Texture>
+  </BiomeAsset>
+</Assets>

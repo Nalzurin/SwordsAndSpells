@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dxs8spc0hns3b"]
+
+[ext_resource type="Script" path="res://Scripts/WorldGeneration/Settings/WorldGenSettings.cs" id="1_8gxkh"]
+
+[resource]
+script = ExtResource("1_8gxkh")
+Size = 128
+Seed = 0

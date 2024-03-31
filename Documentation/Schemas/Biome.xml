@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Assets>
+  <BiomeAsset>
+	<ID></ID>
+	<Name></Name>
+	<Description></Description>
+	<!--Min and max values of moisture where the biome generates-->
+	<MoistureRange type="array">
+	  <value></value>
+	  <value></value>
+	</MoistureRange>
+	<!--Min and max values of temperature where the biome generates-->
+	<TemperatureRange type="array">
+	  <value></value>
+	  <value></value>
+	</TemperatureRange>
+	<!--Priority of the biome if it's ranges overlap with another-->
+	<Priority></Priority>
+	<!--Path to biome tile texture, if empty, placeholder is used-->
+	<Texture></Texture>
+  </BiomeAsset>
+</Assets>
