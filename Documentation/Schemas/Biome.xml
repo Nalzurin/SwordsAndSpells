@@ -14,9 +14,14 @@
 	  <value></value>
 	  <value></value>
 	</TemperatureRange>
+	<!--Min and max values of altitude where the biome generates-->
+	<AltitudeRange>
+	  <value></value>
+	  <value></value>
+	</AltitudeRange>
 	<!--Priority of the biome if it's ranges overlap with another-->
 	<Priority></Priority>
 	<!--Path to biome tile texture, if empty, placeholder is used-->
-	<Texture></Texture>
+	<TexturePath></TexturePath>
   </BiomeAsset>
 </Assets>

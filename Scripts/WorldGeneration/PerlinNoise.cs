@@ -17,13 +17,14 @@ public partial class PerlinNoise : Node
     private float[,] moistureMap;
     private string[,] biomeMap;
     AssetManager assets;
+    [Export]
     TileMap tileMap;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         assets = (AssetManager)GetNode("/root/AssetManager");
-
+        tileMap.TileSet = assets.GetWorldTileSet();
         if (settings.Seed == 0)
         {
             rand = new Random();
@@ -45,6 +46,7 @@ public partial class PerlinNoise : Node
         biomeMap = new string[settings.Size, settings.Size];
         GenerateWorldData();
         AssignBiomes();
+        DrawBiomes();
     }
 
     /// <summary>
@@ -68,9 +70,30 @@ public partial class PerlinNoise : Node
         }
     }
 
-    void SetGraphic(int x, int y, string path)
-    {
 
+    void DrawBiomes()
+    {
+        
+        for (int x = 0; x < settings.Size; x++)
+        {
+            for (int y = 0; y < settings.Size; y++)
+            {
+                tileMap.SetCell(0, new Vector2I(x,y), assets.GetBiome(biomeMap[x, y]).TilesetSourceId, Vector2I.Zero, 0);
+            }
+        }
+       
+
+    }
+    public void PrintBiomes()
+    {
+        
+        for (int x = 0; x < settings.Size; x++)
+        {
+            for (int y = 0; y < settings.Size; y++)
+            {
+                GD.Print(biomeMap[x, y]);   
+            }
+        }
     }
 
     /// <summary>

@@ -5,14 +5,18 @@
 	<Name>Ocean</Name>
 	<Description>The ocean is a massive body of saltwater covering most of the Earth's surface. It's home to countless plants and animals, ranging from tiny plankton to enormous whales.</Description>
 	<MoistureRange type="array">
-	  <value>0.9</value>
 	  <value>0.1</value>
+	  <value>0.9</value>
 	</MoistureRange>
 	<TemperatureRange type="array">
-	  <value>0</value>
-	  <value>1</value>
+	  <value>0.0</value>
+	  <value>1.0</value>
 	</TemperatureRange>
+	<AltitudeRange>
+	  <value>0.0</value>
+	  <value>0.3</value>
+	</AltitudeRange>
 	<priority>1</priority>
-	<Texture>Assets/Sprites/Biomes/Ocean.png</Texture>
+	<TexturePath>Assets/Sprites/Biomes/Ocean.png</TexturePath>
   </BiomeAsset>
 </Assets>

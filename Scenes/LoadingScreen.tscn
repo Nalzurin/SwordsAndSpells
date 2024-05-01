@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs8ct1jnc8awn"]
+[gd_scene load_steps=3 format=3 uid="uid://bs8ct1jnc8awn"]
 
 [ext_resource type="Script" path="res://Scripts/AssetLoader.cs" id="1_d1am1"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_404qt"]
+
 [node name="LoadingScreen" type="Node2D"]
 script = ExtResource("1_d1am1")
+ScenePath = "res://Scenes/World.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+offset_bottom = 21.0
+texture = SubResource("PlaceholderTexture2D_404qt")

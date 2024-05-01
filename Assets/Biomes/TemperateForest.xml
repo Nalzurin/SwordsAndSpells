@@ -6,13 +6,17 @@
 	<Description>A temperate forest is a biome with moderate temperatures and seasonal changes, featuring diverse trees like deciduous and coniferous species. Found in areas with four distinct seasons, these forests are rich in plant and animal life.</Description>
 	<MoistureRange type="array">
 	  <value>0.4</value>
-	  <value>0.5</value>
+	  <value>0.55</value>
 	</MoistureRange>
 	<TemperatureRange type="array">
 	  <value>0.4</value>
-	  <value>0.5</value>
+	  <value>0.55</value>
 	</TemperatureRange>
+	<AltitudeRange>
+	  <value>0.4</value>
+	  <value>0.55</value>
+	</AltitudeRange>
 	<priority>1</priority>
-	<Texture>Assets/Sprites/Biomes/TemperateForest.png</Texture>
+	<TexturePath>Assets/Sprites/Biomes/TemperateForest.png</TexturePath>
   </BiomeAsset>
 </Assets>

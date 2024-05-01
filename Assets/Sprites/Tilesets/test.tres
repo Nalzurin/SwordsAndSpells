@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b8hbhj48k3vs7"]
+
+[ext_resource type="Texture2D" uid="uid://uqbdon11v32d" path="res://Assets/Sprites/Biomes/Ocean.png" id="1_0i7tf"]
+[ext_resource type="Texture2D" uid="uid://butam4t3v3778" path="res://Assets/Sprites/Biomes/TemperateForest.png" id="2_v8fv7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwr6w"]
+texture = ExtResource("1_0i7tf")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uj58a"]
+texture = ExtResource("2_v8fv7")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_rwr6w")
+sources/1 = SubResource("TileSetAtlasSource_uj58a")

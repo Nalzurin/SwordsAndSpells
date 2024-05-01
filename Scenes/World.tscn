@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://c6yl42ysv1rvb"]
+[gd_scene load_steps=5 format=3 uid="uid://c6yl42ysv1rvb"]
+
+[ext_resource type="Script" path="res://Scripts/WorldLoader.cs" id="1_e8fc8"]
+[ext_resource type="Script" path="res://Scripts/WorldGeneration/PerlinNoise.cs" id="1_gfjo0"]
+[ext_resource type="Resource" uid="uid://dxs8spc0hns3b" path="res://Scripts/WorldGeneration/Settings/WorldGenSettings.tres" id="2_34rri"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Camera2DMovement.cs" id="4_1tv6r"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_e8fc8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 116.0
+offset_bottom = 88.0
+text = "World
+"
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+format = 2
+layer_0/name = "Terrain"
+layer_1/name = "Static"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Entities"
+layer_2/tile_data = PackedInt32Array()
+
+[node name="PerlinNoise" type="Node" parent="." node_paths=PackedStringArray("tileMap")]
+script = ExtResource("1_gfjo0")
+settings = ExtResource("2_34rri")
+tileMap = NodePath("../TileMap")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_1tv6r")

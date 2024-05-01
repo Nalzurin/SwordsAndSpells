@@ -6,3 +6,7 @@
 script = ExtResource("1_8gxkh")
 Size = 128
 Seed = 0
+Frequency = 0.0
+Octaves = 2
+Lacunarity = 2.0
+MinBiomeSize = 30
