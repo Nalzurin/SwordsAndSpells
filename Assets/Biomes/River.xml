@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Assets>
+  <BiomeAsset>
+	<ID>Biome_River</ID>
+	<Name>River</Name>
+	<Description>A river is a flowing body of water that moves towards a larger body of water, like a sea or ocean. It supports wildlife and provides water for farming and other human activities.</Description>
+	<MoistureRange type="array">
+	  <value>0</value>
+	  <value>0</value>
+	</MoistureRange>
+	<TemperatureRange type="array">
+	  <value>0.0</value>
+	  <value>0.0</value>
+	</TemperatureRange>
+	<AltitudeRange>
+	  <value>0.0</value>
+	  <value>0.0</value>
+	</AltitudeRange>
+	<priority>1</priority>
+	<TexturePath>Assets/Sprites/Biomes/River.png</TexturePath>
+  <IsWalkable>True</IsWalkable>
+  </BiomeAsset>
+</Assets>

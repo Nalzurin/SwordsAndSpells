@@ -23,5 +23,7 @@
 	<Priority></Priority>
 	<!--Path to biome tile texture, if empty, placeholder is used-->
 	<TexturePath></TexturePath>
+  <!--Designated whether or not entities can walk over the biome tiles-->
+  <IsWalkable></IsWalkable>
   </BiomeAsset>
 </Assets>

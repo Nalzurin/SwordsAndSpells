@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Assets>
+  <BiomeAsset>
+	<ID>Biome_Desert</ID>
+	<Name>Desert</Name>
+	<Description>I hate sand.</Description>
+	<MoistureRange type="array">
+	  <value>0</value>
+	  <value>0.39</value>
+	</MoistureRange>
+	<TemperatureRange type="array">
+	  <value>0.56</value>
+	  <value>1</value>
+	</TemperatureRange>
+	<AltitudeRange>
+	  <value>0.31</value>
+	  <value>1</value>
+	</AltitudeRange>
+	<priority>1</priority>
+	<TexturePath>Assets/Sprites/Biomes/Desert.png</TexturePath>
+  <IsWalkable>True</IsWalkable>
+  </BiomeAsset>
+</Assets>

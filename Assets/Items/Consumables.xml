@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For declaring items -->
+  <assets>
+  <asset>
+	<consumable>
+	  <id>Food_Red_Apple</id>
+	  <name>Apple</name>
+	  <description>A deliciously sweet apple</description>
+	  <sprite>Items/Consumables/Food/Apple_Red.png</sprite> 
+	  <type>Food</type>
+	  <target>Self</target>
+	  <uses>2</uses>
+	  <effects>
+		<effect>
+		  <effectid>HealthRestoration</effectid>
+		  <type>Active</type>
+		  <value>10</value>
+		  <duration>0</duration>
+		</effect>
+	  </effects>
+	  <!-- Filepath starts in Sprites folder -->
+	  
+	</consumable>
+  </asset>
+</assets>

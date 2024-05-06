@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 AssetManager="*res://Scripts/AssetManager.cs"
 Logger="*res://Scripts/Debug/Logger.cs"
+GameManager="*res://Scripts/GameManager.cs"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 

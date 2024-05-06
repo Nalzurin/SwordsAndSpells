@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Xml;
 
 public partial class BiomeLoader : Node
@@ -13,7 +14,6 @@ public partial class BiomeLoader : Node
 	{
         assets = (AssetManager)GetNode("/root/AssetManager");
 		GetBiomes();
-        GenerateTileset();
         assets.DebugListBiomes();
     }
 	void GetBiomes()
@@ -130,31 +130,16 @@ public partial class BiomeLoader : Node
         {
             biome.TexturePath = texturePathNode.InnerText;
         }
-
+        XmlNode isWalkablePathNode = BiomeNode.SelectSingleNode("IsWalkable");
+        if (isWalkablePathNode != null)
+        {
+            bool value;
+            if (bool.TryParse(isWalkablePathNode.InnerText, out value))
+            {
+                biome.IsWalkable = value;
+            }
+        }
         return biome;
 
-    }
-    void GenerateTileset()
-    {
-        tileSet = new TileSet();
-        foreach (var biome in assets.GetBiomes())
-        {
-            AddSource(biome.Value.TexturePath, biome.Key);
-        }
-        assets.SetWorldTileSet(tileSet);
-       
-    }
-    private void AddSource(string texturePath, string name)
-    {
-        // Load texture
-        Texture texture = GD.Load<Texture>(texturePath);
-
-        TileSetAtlasSource TileSource = new TileSetAtlasSource();
-        TileSource.Texture = (Texture2D)texture;
-        TileSource.CreateTile(Vector2I.Zero);
-
-        // Add the AtlasTexture to the tileset with the unique string ID
-        int id = tileSet.AddSource(TileSource);
-        assets.SetBiomeTileSetSourceId(name, id);
     }
 }

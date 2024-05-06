@@ -38,7 +38,7 @@ public partial class AssetManager : Node
     {
         foreach(Biome biome in biomes.Values)
         {
-            GD.Print($"{biome.ID}\nName: {biome.Name}\nDescription: {biome.Description}\nMoisture Range:[{biome.MoistureRange[0]};{biome.MoistureRange[1]}]\nTemperature Range:[{biome.TemperatureRange[0]};{biome.TemperatureRange[1]}]\nAltitude Range:[{biome.AltitudeRange[0]};{biome.AltitudeRange[1]}]\nPriority: {biome.Priority}\nTilesetSourceID: {biome.TilesetSourceId}");
+            GD.Print($"{biome.ID}\nName: {biome.Name}\nDescription: {biome.Description}\nMoisture Range:[{biome.MoistureRange[0]};{biome.MoistureRange[1]}]\nTemperature Range:[{biome.TemperatureRange[0]};{biome.TemperatureRange[1]}]\nAltitude Range:[{biome.AltitudeRange[0]};{biome.AltitudeRange[1]}]\nIs Walkable: {biome.IsWalkable}\nPriority: {biome.Priority}\nTilesetSourceID: {biome.TilesetSourceId}");
         }
     }
 

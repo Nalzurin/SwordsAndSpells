@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://br2abkd3r22df"]
+
+[ext_resource type="Texture2D" uid="uid://c3uc2lwtdnsir" path="res://Assets/GUI/Icons.png" id="1_b3pec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogw1q"]
+atlas = ExtResource("1_b3pec")
+region = Rect2(80, 112, 16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 43.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ogw1q")
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ogw1q")
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ogw1q")
+stretch_mode = 5
+
+[node name="TextureButton4" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ogw1q")
+stretch_mode = 5
+
+[node name="TextureButton5" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ogw1q")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "I"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "C"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "L"
+horizontal_alignment = 1

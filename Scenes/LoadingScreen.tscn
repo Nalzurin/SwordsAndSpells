@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs8ct1jnc8awn"]
 
-[ext_resource type="Script" path="res://Scripts/AssetLoader.cs" id="1_d1am1"]
+[ext_resource type="Script" path="res://AssetLoader.cs" id="1_d1am1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_404qt"]
 

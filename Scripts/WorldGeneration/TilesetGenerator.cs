@@ -11,12 +11,18 @@ public partial class TilesetGenerator : Node
     {
         assets = (AssetManager)GetNode("/root/AssetManager");
         tileset = new TileSet();
+        tileset.AddCustomDataLayer(0);
+        tileset.SetCustomDataLayerName(0, "IsWalkable");
+        tileset.SetCustomDataLayerType(0, Variant.Type.Bool);
         tileset.TileSize = new Vector2I(tileSize, tileSize);
+
         // Loop through the biomes and add tiles to the tileset
         foreach (var biome in assets.GetBiomes())
         {
             AddAtlas(biome.Value.TexturePath, biome.Key);
         }
+        
+        assets.SetWorldTileSet(tileset);
     }
 
     // Add a tile to the tileset
@@ -33,4 +39,5 @@ public partial class TilesetGenerator : Node
         int id = tileset.AddSource(TileSource);
         assets.SetBiomeTileSetSourceId(name, id);
     }
+
 }

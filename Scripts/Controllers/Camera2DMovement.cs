@@ -4,7 +4,7 @@ using System;
 public partial class Camera2DMovement : Node2D
 {
     // Define the speed of the camera movement
-    [Export] public float speed = 200.0f;
+    [Export] public float speed = 2000.0f;
 
     public override void _Process(double delta)
     {

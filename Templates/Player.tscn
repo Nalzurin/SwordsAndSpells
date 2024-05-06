@@ -1,0 +1,370 @@
+[gd_scene load_steps=19 format=3 uid="uid://d2s4pqsq11dyi"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Entity/PlayerEntity.cs" id="1_03a0b"]
+[ext_resource type="Script" path="res://Scripts/GUI/DebugValuesScript.cs" id="2_vw3bk"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonHealTest.cs" id="3_r4dg4"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonDamageTest.cs" id="4_v0lq4"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonManaMinusTest.cs" id="5_qi27u"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonManaPlusTest.cs" id="6_3wv8m"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonStaminaMinusTest.cs" id="7_0mnln"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonStaminaPlusTest.cs" id="8_2iycq"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonStrengthMinusTest.cs" id="9_rj84g"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonStrengthPlusTest.cs" id="10_emre0"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonDexterityMinusTest.cs" id="11_5d4co"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonDexterityPlusTest.cs" id="12_gd7v3"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonVitalityMinusTest.cs" id="13_blfcy"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonVitalityPlusTest.cs" id="14_mtgqh"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonIntelligenceMinusTest.cs" id="15_dwyl8"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonIntelligencePlusTest.cs" id="16_bypd6"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonLuckMinusTest.cs" id="17_htpqk"]
+[ext_resource type="Script" path="res://Scripts/Debug/ButtonLuckPlusTest.cs" id="18_nro3b"]
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("PlayerSprite")]
+script = ExtResource("1_03a0b")
+PlayerSprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(800, 450)
+scale = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" node_paths=PackedStringArray("player", "HealthBase", "HealthMax", "HealthCurrent", "StaminaBase", "StaminaMax", "StaminaCurrent", "ManaBase", "ManaMax", "ManaCurrent", "StrengthBase", "StrengthCurrent", "DexterityBase", "DexterityCurrent", "VitalityBase", "VitalityCurrent", "IntelligenceBase", "IntelligenceCurrent", "LuckBase", "LuckCurrent", "MeleeDamageMult", "RangedDamageMult", "MagicDamageMult", "LuckMult", "DodgeChance")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_vw3bk")
+player = NodePath("../..")
+HealthBase = NodePath("GridContainer/Label1")
+HealthMax = NodePath("GridContainer/Label3")
+HealthCurrent = NodePath("GridContainer/Label5")
+StaminaBase = NodePath("GridContainer/Label7")
+StaminaMax = NodePath("GridContainer/Label9")
+StaminaCurrent = NodePath("GridContainer/Label11")
+ManaBase = NodePath("GridContainer/Label13")
+ManaMax = NodePath("GridContainer/Label15")
+ManaCurrent = NodePath("GridContainer/Label17")
+StrengthBase = NodePath("GridContainer2/Label1")
+StrengthCurrent = NodePath("GridContainer2/Label3")
+DexterityBase = NodePath("GridContainer2/Label5")
+DexterityCurrent = NodePath("GridContainer2/Label7")
+VitalityBase = NodePath("GridContainer2/Label9")
+VitalityCurrent = NodePath("GridContainer2/Label11")
+IntelligenceBase = NodePath("GridContainer2/Label13")
+IntelligenceCurrent = NodePath("GridContainer2/Label15")
+LuckBase = NodePath("GridContainer2/Label17")
+LuckCurrent = NodePath("GridContainer2/Label19")
+MeleeDamageMult = NodePath("GridContainer3/Label2")
+RangedDamageMult = NodePath("GridContainer3/Label4")
+MagicDamageMult = NodePath("GridContainer3/Label6")
+LuckMult = NodePath("GridContainer3/Label8")
+DodgeChance = NodePath("GridContainer3/Label10")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Health Base:"
+
+[node name="Label1" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Health Max:"
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Health Current:"
+
+[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Stamina Base:"
+
+[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label8" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Stamina Max:"
+
+[node name="Label9" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label10" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Stamina Current:"
+
+[node name="Label11" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label12" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Mana Base:"
+
+[node name="Label13" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label14" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Mana Max:"
+
+[node name="Label15" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label16" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Mana Current:"
+
+[node name="Label17" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Strength Base:"
+
+[node name="Label1" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Strength Current:"
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Dexterity Base:"
+
+[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Dexterity Current:"
+
+[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label8" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Vitality Base:"
+
+[node name="Label9" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label10" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Vitality Current:"
+
+[node name="Label11" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label12" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Intelligence Base:"
+
+[node name="Label13" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label14" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Intelligence Current:"
+
+[node name="Label15" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label16" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Luck Base:"
+
+[node name="Label17" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label18" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Luck Current:"
+
+[node name="Label19" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Value"
+
+[node name="GridContainer3" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Melee Damage Multiplier: "
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Ranged Damage Multiplier: "
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Magic Damage Multiplier: "
+
+[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Luck Multiplier: "
+
+[node name="Label8" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Value"
+
+[node name="Label9" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Dodge Chance: "
+
+[node name="Label10" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Value"
+
+[node name="GridContainer4" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+columns = 6
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Health -10"
+script = ExtResource("4_v0lq4")
+player = NodePath("../../../..")
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Health +10"
+script = ExtResource("3_r4dg4")
+player = NodePath("../../../..")
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Mana -10"
+script = ExtResource("5_qi27u")
+player = NodePath("../../../..")
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Mana +10"
+script = ExtResource("6_3wv8m")
+player = NodePath("../../../..")
+
+[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Stamina -10"
+script = ExtResource("7_0mnln")
+player = NodePath("../../../..")
+
+[node name="Button6" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Stamina +10"
+script = ExtResource("8_2iycq")
+player = NodePath("../../../..")
+
+[node name="Button7" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Strength--
+"
+script = ExtResource("9_rj84g")
+player = NodePath("../../../..")
+
+[node name="Button8" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Strength++"
+script = ExtResource("10_emre0")
+player = NodePath("../../../..")
+
+[node name="Button9" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Dexterity--
+"
+script = ExtResource("11_5d4co")
+player = NodePath("../../../..")
+
+[node name="Button10" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Dexterity++"
+script = ExtResource("12_gd7v3")
+player = NodePath("../../../..")
+
+[node name="Button11" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Vitality--
+"
+script = ExtResource("13_blfcy")
+player = NodePath("../../../..")
+
+[node name="Button12" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Vitality++"
+script = ExtResource("14_mtgqh")
+player = NodePath("../../../..")
+
+[node name="Button13" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Intelligence--
+"
+script = ExtResource("15_dwyl8")
+player = NodePath("../../../..")
+
+[node name="Button14" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Intelligence++"
+script = ExtResource("16_bypd6")
+player = NodePath("../../../..")
+
+[node name="Button15" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Luck--
+"
+script = ExtResource("17_htpqk")
+player = NodePath("../../../..")
+
+[node name="Button16" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer4" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "Luck++"
+script = ExtResource("18_nro3b")
+player = NodePath("../../../..")

@@ -1,16 +1,30 @@
-[gd_resource type="TileSet" load_steps=5 format=3]
+[gd_resource type="TileSet" load_steps=9 format=3]
 
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Ocean.png" id="1_82m51"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/TemperateForest.png" id="2_0dg66"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Desert.png" id="1_xhlnf"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Ocean.png" id="2_4p1o1"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/River.png" id="3_y0uc1"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/TemperateForest.png" id="4_7fqjp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1c17"]
-texture = ExtResource("1_82m51")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ftom0"]
+texture = ExtResource("1_xhlnf")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idc3w"]
-texture = ExtResource("2_0dg66")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jookc"]
+texture = ExtResource("2_4p1o1")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ka0i"]
+texture = ExtResource("3_y0uc1")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31fi3"]
+texture = ExtResource("4_7fqjp")
 0:0/0 = 0
 
 [resource]
-sources/0 = SubResource("TileSetAtlasSource_p1c17")
-sources/1 = SubResource("TileSetAtlasSource_idc3w")
+custom_data_layer_0/name = "IsWalkable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ftom0")
+sources/1 = SubResource("TileSetAtlasSource_jookc")
+sources/2 = SubResource("TileSetAtlasSource_0ka0i")
+sources/3 = SubResource("TileSetAtlasSource_31fi3")
