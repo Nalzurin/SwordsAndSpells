@@ -1,0 +1,32 @@
+<EntityPlayer>
+  <ID></ID>
+  <Name></Name>
+  <Description></Description>
+  <SpritePath>Items/Consumables/Food/Orange.png</SpritePath>
+  <TargetType>Player</TargetType>
+  <Abilities type="array">
+    <!--Ability id, abilities are made separate-->
+    <Ability>
+    </Ability>
+  </Abilities>
+  <Characteristics>
+    <CurrentHealth></CurrentHealth>
+    <CurrentStamina></CurrentStamina>
+    <CurrentMana></CurrentMana>
+  </Characteristics>
+  <Experience>
+    <CharacterExp></CharacterExp>
+    <StrengthExp></StrengthExp>
+    <DexterityExp></DexterityExp>
+    <VitalityExp></VitalityExp>
+    <IntelligenceExp></IntelligenceExp>
+    <LuckExp></LuckExp>
+  </Experience>
+  <Inventory>
+    <Item>
+      <!--Items are made separate, index is the position of the item in the inventory-->
+      <ID></ID>
+      <Index></Index>
+    </Item>
+  </Inventory>
+</EntityPlayer>

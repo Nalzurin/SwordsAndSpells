@@ -48,15 +48,6 @@ public partial class Characteristics : Node
     public int LuckCurrent { get; private set; }
     public Dictionary<int, AttributeModifier> LuckModifiers = new Dictionary<int, AttributeModifier>();
     #endregion
-
-    #region AttributeExp
-    public int StrengthExp { get; private set; }
-    public int DexterityExp { get; private set; }
-    public int VitalityExp { get; private set; }
-    public int IntelligenceExp { get; private set; }
-    public int LuckExp { get; private set; }
-    #endregion
-
     #region StatVariables
     public float MeleeDamageMult { get; private set; }
     public float RangedDamageMult { get; private set; }
@@ -109,31 +100,43 @@ public partial class Characteristics : Node
     public void IncreaseLevel()
     {
         CharacterLevel++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void IncreaseStrength()
     {
         StrengthBase++;
+        StrengthCurrent++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void IncreaseDexterity()
     {
         DexterityBase++;
+        DexterityCurrent++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void IncreaseVitality()
     {
         VitalityBase++;
+        VitalityCurrent++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void IncreaseIntelligence()
     {
         IntelligenceBase++;
+        IntelligenceCurrent++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
+
     }
     public void IncreaseLuck()
     {
         LuckBase++;
+        LuckCurrent++;
+        CalculateModifiers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     #endregion
@@ -175,6 +178,7 @@ public partial class Characteristics : Node
 
     public void CalculateModifiers()
     {
+
         //strength
         StrengthCurrent = StrengthBase;
         foreach (AttributeModifier modifier in StrengthModifiers.Values)
@@ -227,7 +231,10 @@ public partial class Characteristics : Node
         }
         //health
         int healthBasePrevious = HealthBase;
-        HealthBase = 50 + VitalityCurrent / 2;
+        if (parent is PlayerEntity)
+        {
+            HealthBase = 50 + VitalityCurrent / 2;
+        }
         HealthMax = HealthBase;
         HealthCurrent = HealthCurrent - healthBasePrevious + HealthBase;
         foreach (AttributeModifier modifier in HealthModifiers.Values)
@@ -237,7 +244,10 @@ public partial class Characteristics : Node
         }
         //stamina
         int staminaBasePrevious = StaminaBase;
-        StaminaBase = 50 + VitalityCurrent / 4 + StrengthCurrent / 4 + DexterityCurrent / 4 + IntelligenceCurrent / 4;
+        if (parent is PlayerEntity)
+        {
+            StaminaBase = 50 + VitalityCurrent / 4 + StrengthCurrent / 4 + DexterityCurrent / 4 + IntelligenceCurrent / 4;
+        }
         StaminaMax = StaminaBase;
         StaminaCurrent = StaminaCurrent - staminaBasePrevious + StaminaBase;
         foreach (AttributeModifier modifier in StaminaModifiers.Values)
@@ -247,7 +257,10 @@ public partial class Characteristics : Node
         }
         //mana
         int manaBasePrevious = ManaBase;
-        ManaBase = 50 + IntelligenceCurrent / 2;
+        if (parent is PlayerEntity)
+        {
+            ManaBase = 50 + IntelligenceCurrent / 2;
+        }
         ManaMax = ManaBase;
         ManaCurrent = ManaCurrent - manaBasePrevious + ManaBase;
         foreach (AttributeModifier modifier in ManaModifiers.Values)
@@ -276,11 +289,11 @@ public partial class Characteristics : Node
     {
         parent = _parent;
     }
-    public Characteristics() : this(1, 50, 50, 50, 50, 50, 50, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0, 0, 0, 0, 0, null) { }
+    public Characteristics() : this(1, 50, 50, 50, 50, 50, 50, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,null) { }
 
     public Characteristics(int _CharacterLevel, int healthBase, int healthCurrent, int staminaBase, int staminaCurrent, int manaBase, int manaCurrent, int strengthBase, int strengthCurrent,
                            int dexterityBase, int dexterityCurrent, int vitalityBase, int vitalityCurrent, int intelligenceBase, int intelligenceCurrent, int luckBase,
-                           int luckCurrent, int strengthExp, int dexterityExp, int vitalityExp, int intelligenceExp, int luckExp, BaseEntity _parent)
+                           int luckCurrent, BaseEntity _parent)
     {
         CharacterLevel = _CharacterLevel;
         HealthBase = healthBase;
@@ -299,11 +312,6 @@ public partial class Characteristics : Node
         IntelligenceCurrent = intelligenceCurrent;
         LuckBase = luckBase;
         LuckCurrent = luckCurrent;
-        StrengthExp = strengthExp;
-        DexterityExp = dexterityExp;
-        VitalityExp = vitalityExp;
-        IntelligenceExp = intelligenceExp;
-        LuckExp = luckExp;
         CalculateModifiers();
         parent = _parent;
 

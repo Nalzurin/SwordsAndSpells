@@ -4,7 +4,7 @@ using System;
 public partial class DebugValuesScript : Node
 {
     [Export]
-    PlayerEntity player;
+    PlayerController player;
     [Export]
     Label HealthBase;
     [Export]
@@ -57,37 +57,41 @@ public partial class DebugValuesScript : Node
     public override void _Ready()
     {
 
-        player.Characteristics.CharacteristicsChanged += UpdateValues;
+        CallDeferred("SetSignal");
         CallDeferred("UpdateValues", "Player");
+    }
+    public void SetSignal()
+    {
+        player.PlayerData.Characteristics.CharacteristicsChanged += UpdateValues;
     }
     public void UpdateValues(string source)
     {
         if (source == "Player")
         {
-            HealthBase.Text = player.Characteristics.HealthBase.ToString();
-            HealthMax.Text = player.Characteristics.HealthMax.ToString();
-            HealthCurrent.Text = player.Characteristics.HealthCurrent.ToString();
-            StaminaBase.Text = player.Characteristics.StaminaBase.ToString();
-            StaminaMax.Text = player.Characteristics.StaminaMax.ToString();
-            StaminaCurrent.Text = player.Characteristics.StaminaCurrent.ToString();
-            ManaBase.Text = player.Characteristics.ManaBase.ToString();
-            ManaMax.Text = player.Characteristics.ManaMax.ToString();
-            ManaCurrent.Text = player.Characteristics.ManaCurrent.ToString();
-            StrengthBase.Text = player.Characteristics.StrengthBase.ToString();
-            StrengthCurrent.Text = player.Characteristics.StrengthCurrent.ToString();
-            DexterityBase.Text = player.Characteristics.DexterityBase.ToString();
-            DexterityCurrent.Text = player.Characteristics.DexterityCurrent.ToString();
-            VitalityBase.Text = player.Characteristics.VitalityBase.ToString();
-            VitalityCurrent.Text = player.Characteristics.VitalityCurrent.ToString();
-            IntelligenceBase.Text = player.Characteristics.IntelligenceBase.ToString();
-            IntelligenceCurrent.Text = player.Characteristics.IntelligenceCurrent.ToString();
-            LuckBase.Text = player.Characteristics.LuckBase.ToString();
-            LuckCurrent.Text = player.Characteristics.LuckCurrent.ToString();
-            MeleeDamageMult.Text = player.Characteristics.MeleeDamageMult.ToString();
-            RangedDamageMult.Text = player.Characteristics.RangedDamageMult.ToString();
-            MagicDamageMult.Text = player.Characteristics.MagicDamageMult.ToString();
-            LuckMult.Text = player.Characteristics.LuckMult.ToString();
-            DodgeChance.Text = player.Characteristics.DodgeChance.ToString();
+            HealthBase.Text = player.PlayerData.Characteristics.HealthBase.ToString();
+            HealthMax.Text = player.PlayerData.Characteristics.HealthMax.ToString();
+            HealthCurrent.Text = player.PlayerData.Characteristics.HealthCurrent.ToString();
+            StaminaBase.Text = player.PlayerData.Characteristics.StaminaBase.ToString();
+            StaminaMax.Text = player.PlayerData.Characteristics.StaminaMax.ToString();
+            StaminaCurrent.Text = player.PlayerData.Characteristics.StaminaCurrent.ToString();
+            ManaBase.Text = player.PlayerData.Characteristics.ManaBase.ToString();
+            ManaMax.Text = player.PlayerData.Characteristics.ManaMax.ToString();
+            ManaCurrent.Text = player.PlayerData.Characteristics.ManaCurrent.ToString();
+            StrengthBase.Text = player.PlayerData.Characteristics.StrengthBase.ToString();
+            StrengthCurrent.Text = player.PlayerData.Characteristics.StrengthCurrent.ToString();
+            DexterityBase.Text = player.PlayerData.Characteristics.DexterityBase.ToString();
+            DexterityCurrent.Text = player.PlayerData.Characteristics.DexterityCurrent.ToString();
+            VitalityBase.Text = player.PlayerData.Characteristics.VitalityBase.ToString();
+            VitalityCurrent.Text = player.PlayerData.Characteristics.VitalityCurrent.ToString();
+            IntelligenceBase.Text = player.PlayerData.Characteristics.IntelligenceBase.ToString();
+            IntelligenceCurrent.Text = player.PlayerData.Characteristics.IntelligenceCurrent.ToString();
+            LuckBase.Text = player.PlayerData.Characteristics.LuckBase.ToString();
+            LuckCurrent.Text = player.PlayerData.Characteristics.LuckCurrent.ToString();
+            MeleeDamageMult.Text = player.PlayerData.Characteristics.MeleeDamageMult.ToString();
+            RangedDamageMult.Text = player.PlayerData.Characteristics.RangedDamageMult.ToString();
+            MagicDamageMult.Text = player.PlayerData.Characteristics.MagicDamageMult.ToString();
+            LuckMult.Text = player.PlayerData.Characteristics.LuckMult.ToString();
+            DodgeChance.Text = player.PlayerData.Characteristics.DodgeChance.ToString();
 
         }
 

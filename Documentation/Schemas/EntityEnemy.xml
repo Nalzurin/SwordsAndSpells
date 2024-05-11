@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityEnemy>
+  <!--String-->
+  <ID></ID>
+  <!--String-->
+  <Name></Name>
+  <!--String-->
+  <Description></Description>
+  <!--String-->
+  <SpritePath></SpritePath>
+  <!--Enemy rarity(Common,Rare,Epic,Legendary), affects spawn rates-->
+  
+  <Rarity></Rarity>
+  <Biomes>
+    <!--Biome ID-->
+    <Biome></Biome>
+  </Biomes>
+  <TargetType>Enemy</TargetType>
+  <!--If entity has some custom effects on it, leave empty if none-->
+  <Effects type="array">
+    <Effect>
+      <!--For effect schema, see Effect.xml-->
+    </Effect>
+  </Effects>
+  <!--If entity has some custom actions it can do that dont have an associated ability, leave empty if none-->
+  <Actions type="array">
+    <Action>
+      <!--For action schema, see Action.xml-->
+    </Action>
+  </Actions>
+  <Abilities type="array">
+    <Ability>
+      <!--Ability ID-->
+    </Ability>
+  </Abilities>
+  <Characteristics>
+    <!--Keep in mind that the attributes also increase the multipliers(melee,ranged,magic damage etc.), so adjust the values to balance-->
+    <Level></Level>
+    <Health></Health>
+    <Stamina></Stamina>
+    <Mana></Mana>
+    <Strength></Strength>
+    <Dexterity></Dexterity>
+    <Vitality></Vitality>
+    <Intelligence></Intelligence>
+    <Luck></Luck>
+  </Characteristics>
+</EntityEnemy>

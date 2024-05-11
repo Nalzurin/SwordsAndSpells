@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 public class Abilities
 {
@@ -11,41 +13,52 @@ public class Abilities
     {
         this.parent = parent;
     }
+    public void ApplyAbilities()
+    {
+        foreach(BaseAbility ability in abilities)
+        {
+            foreach (BaseAction action in ability.Actions)
+            {
+                if (!parent.Actions.actions.Contains(action)) parent.Actions.AddAction(action);
+            }
+            foreach (IEffect effect in ability.Effects)
+            {
+                if (!parent.Effects.GetActiveEffects().Contains(effect)) parent.Effects.AddEffect(effect);
+            }
+
+
+        }
+    }
     public void AddAbility(BaseAbility ability)
     {
         abilities.Add(ability);
-        if(ability is AbilityActive abilityActive)
+        foreach (BaseAction action in ability.Actions)
         {
-            foreach (BaseAction action in abilityActive.Actions) 
-            {
-                parent.Actions.AddAction(action);
-            }
+            parent.Actions.AddAction(action);
         }
-       if(ability is AbilityPassive abilityPassive)
+        foreach (IEffect effect in ability.Effects)
         {
-            foreach (IEffect effect in abilityPassive.Effects)
-            {
-                parent.Effects.AddEffect(effect);
-            }
+            parent.Effects.AddEffect(effect);
         }
+        
     }
     public void RemoveAbility(BaseAbility ability)
     {
         abilities.Remove(ability);
-        if (ability is AbilityActive abilityActive)
+        foreach (BaseAction action in ability.Actions)
         {
+            parent.Actions.RemoveAction(action);
+        }
+        foreach (IEffect effect in ability.Effects)
+        {
+            parent.Effects.RemoveEffect(effect);
+        }
 
-            foreach (BaseAction action in abilityActive.Actions)
-            {
-                parent.Actions.RemoveAction(action);
-            }
-        }
-        if (ability is AbilityPassive abilityPassive)
-        {
-            foreach (IEffect effect in abilityPassive.Effects)
-            {
-                parent.Effects.RemoveEffect(effect);
-            }
-        }
+    }
+    public Abilities() : this(new List<BaseAbility>(), null) { }
+    public Abilities(List<BaseAbility> _Abilities, BaseEntity _Parent)
+    {
+        abilities = _Abilities;
+        parent = _Parent;
     }
 }

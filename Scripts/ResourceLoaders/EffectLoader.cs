@@ -5,7 +5,8 @@ using System.Xml;
 public class EffectLoader
 {
     XmlNode effectNode {  get; set; }
-    public EffectLoader(XmlNode _effectNode) { effectNode = _effectNode;  }
+    string Source { get; set; }
+    public EffectLoader(XmlNode _effectNode, string _Source) { effectNode = _effectNode;  Source = _Source;}
     public IEffect GenerateEffect()
     {
         string id = effectNode.SelectSingleNode("ID")?.InnerText ?? string.Empty;
@@ -19,13 +20,22 @@ public class EffectLoader
         switch (effectTypeClass)
         {
             case "ChangeHealthEffect":
-                return new ChangeHealthEffect(id, name, description, duration, value, effectType, isHarmful);
+                return new ChangeHealthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
             case "ChangeManaEffect":
-                return new ChangeManaEffect(id, name, description, duration, value, effectType, isHarmful);
+                return new ChangeManaEffect(id, name, description, duration, value, effectType, isHarmful, Source);
             case "ChangeStaminaEffect":
-                return new ChangeStaminaEffect(id, name, description, duration, value, effectType, isHarmful);
+                return new ChangeStaminaEffect(id, name, description, duration, value, effectType, isHarmful, Source);
             case "ChangeStrengthEffect":
-                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful);
+                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
+            case "ChangeDexterityEffect":
+                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
+            case "ChangeVitalityEffect":
+                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
+            case "ChangeIntelligenceEffect":
+                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
+            case "ChangeLuckEffect":
+                return new ChangeStrengthEffect(id, name, description, duration, value, effectType, isHarmful, Source);
+
             default:
                 throw new InvalidOperationException($"Unknown EffectTypeClass: {effectTypeClass}");
         }

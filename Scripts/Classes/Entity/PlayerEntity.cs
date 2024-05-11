@@ -6,29 +6,18 @@ using System.Reflection.PortableExecutable;
 public partial class PlayerEntity : BaseEntity
 {
 
-    [Export]
-    public Sprite2D PlayerSprite;
-    Experience Experience { get; set; }
-    public override void _Ready()
-    {
-        PlayerSprite.Texture = GetSprite();
-        GD.Print(Characteristics.HealthBase.ToString());
-    }
-    void DebugDamageHealth()
-    {
+    public Experience Experience { get; set; }
+    public Inventory Inventory { get; set; }
 
-    }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
-    public PlayerEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new Effects(), new Abilities(), new Characteristics(), new Experience())
+    public PlayerEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new Effects(), new Abilities(), new Actions(), new Characteristics(), new Experience(), new Inventory())
     {
         Effects.SetParent(this);
         Characteristics.SetParent(this);
+        Abilities.SetParent(this);
+        Actions.SetParent(this);
+        Experience.SetParent(this);
     }
-    public PlayerEntity(string _ID, string _EntityName, string _Description, string _SpritePath, string _TargetType, Effects _Effects, Abilities _Abilities, Characteristics _Characteristics, Experience _Experience)
+    public PlayerEntity(string _ID, string _EntityName, string _Description, string _SpritePath, string _TargetType, Effects _Effects, Abilities _Abilities, Actions actions, Characteristics _Characteristics, Experience _Experience, Inventory inventory)
     {
         ID = _ID;
         EntityName = _EntityName;
@@ -37,8 +26,14 @@ public partial class PlayerEntity : BaseEntity
         TargetType = _TargetType;
         Effects = _Effects;
         Abilities = _Abilities;
+        Actions = actions;
         Characteristics = _Characteristics;
         Experience = _Experience;
+        Effects.SetParent(this);
+        Characteristics.SetParent(this);
+        Abilities.SetParent(this);
+        Actions.SetParent(this);
+        Inventory = inventory;
     }
 
 

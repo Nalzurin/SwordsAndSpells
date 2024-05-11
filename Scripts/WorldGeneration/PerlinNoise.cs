@@ -8,7 +8,8 @@ public partial class PerlinNoise : Node
     #region Noise
     [Export]
     public WorldGenSettings settings;
-
+    [Export]
+    bool MainMenu;
     Random rand;
     FastNoiseLite moisture = new FastNoiseLite();
     FastNoiseLite altitude = new FastNoiseLite();
@@ -19,17 +20,35 @@ public partial class PerlinNoise : Node
     private float[,] moistureMap;
     private string[,] biomeMap;
     AssetManager assets;
+    GameManager gameManager;
     [Export]
     TileMap tileMap;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        GD.Print("Starting generation");
         assets = (AssetManager)GetNode("/root/AssetManager");
+        gameManager = (GameManager)GetNode("/root/GameManager");
+        if(MainMenu)
+        {
+            settings = new WorldGenSettings(2048, 1, 0.001f, 4, 2, 10);
+        }
+        else
+        {
+            GD.Print("Loading world");
+            settings = gameManager.CurrentWorld.Settings;
+        }
+        
         tileMap.TileSet = assets.GetWorldTileSet();
         if (settings.Seed == 0)
         {
-            rand = new Random();
+            Random seedGen = new Random();
+            int seed = seedGen.Next(999999999);
+            settings.Seed = seed;
+            gameManager.CurrentWorld.Settings.Seed = seed;
+            rand = new Random(seed);
+            gameManager.SaveCurrentWorld();
         }
         else
         {
@@ -61,6 +80,16 @@ public partial class PerlinNoise : Node
         ProcessGrid();
         SeparateBiomesWithRivers();
         DrawBiomes();
+        gameManager.SetCurrentWorldBiomeMap(biomeMap);
+        GD.Print(gameManager.currentWorldBiomeMap.Length);
+        if(gameManager.CurrentState == "TRAVEL")
+        {
+            var scene = GD.Load<PackedScene>("res://Templates/Player.tscn");
+            var player = scene.Instantiate();
+            CallDeferred("add_sibling", player);
+        }
+
+
     }
 
     /// <summary>

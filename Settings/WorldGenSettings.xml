@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorldGenSettings>
+  <!--Int, size in cells-->
+  <Size>2048</Size>
+  <!--Generation seed, leave empty for randomized-->
+  <Seed>1</Seed>
+  <Octaves>4</Octaves>
+  <Lacunarity>1</Lacunarity>
+  <MinimumBiomeSize>25</MinimumBiomeSize>
+  <Frequency>0.001</Frequency>
+</WorldGenSettings>

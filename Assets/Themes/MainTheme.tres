@@ -1,0 +1,89 @@
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://corb2440xm1na"]
+
+[ext_resource type="FontFile" uid="uid://c1er4qtdiotps" path="res://Assets/Fonts/clacon2.ttf" id="1_docfs"]
+[ext_resource type="Texture2D" uid="uid://b70xf4grecvx5" path="res://Assets/GUI/Border All 2.png" id="1_ytcpc"]
+[ext_resource type="Texture2D" uid="uid://blfrjs21c7cmg" path="res://Assets/GUI/03.png" id="2_bd06i"]
+[ext_resource type="StyleBox" uid="uid://ckd4bno8d24uo" path="res://Assets/Themes/MainMenuButtonTextures/HoverButtonMainMenu.tres" id="2_nfdw0"]
+[ext_resource type="StyleBox" uid="uid://cnvobl7qugpa" path="res://Assets/Themes/MainMenuButtonTextures/NormalExitButton.tres" id="3_4umoc"]
+[ext_resource type="StyleBox" uid="uid://b67ao4ocpauop" path="res://Assets/Themes/MainMenuButtonTextures/HoverExitButton.tres" id="3_6v32a"]
+[ext_resource type="StyleBox" uid="uid://blaoix4580qv3" path="res://Assets/Themes/MainMenuButtonTextures/NormalButtonMainMenu.tres" id="3_12e66"]
+[ext_resource type="StyleBox" uid="uid://cmgv4c786mmt3" path="res://Assets/Themes/MainMenuButtonTextures/PressedButtonMainMenu.tres" id="4_evpjc"]
+[ext_resource type="StyleBox" uid="uid://bufrc3j1e2fs4" path="res://Assets/Themes/MainMenuButtonTextures/PressedExitButton.tres" id="5_d0kyo"]
+[ext_resource type="Texture2D" uid="uid://bjgudbv26m25a" path="res://Assets/GUI/Sliders.png" id="9_l0xte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5f13"]
+atlas = ExtResource("1_ytcpc")
+region = Rect2(193, 129, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vtvq"]
+texture = SubResource("AtlasTexture_j5f13")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qimm5"]
+atlas = ExtResource("2_bd06i")
+region = Rect2(65, 225, 62, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_861fl"]
+texture = SubResource("AtlasTexture_qimm5")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ti44"]
+atlas = ExtResource("2_bd06i")
+region = Rect2(82, 4, 44, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hr3ly"]
+texture = SubResource("AtlasTexture_5ti44")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0.282353, 0.282353, 0.282353, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3apfb"]
+atlas = ExtResource("9_l0xte")
+region = Rect2(68, 7, 8, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v73q6"]
+texture = SubResource("AtlasTexture_3apfb")
+texture_margin_left = 3.0
+texture_margin_top = 7.0
+texture_margin_right = 3.0
+texture_margin_bottom = 7.0
+modulate_color = Color(0.956863, 0.796078, 1, 1)
+
+[resource]
+default_font = ExtResource("1_docfs")
+BigLabel/base_type = &"Label"
+BigLabel/constants/outline_size = 15
+BigLabel/font_sizes/font_size = 64
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 8
+ContainerFancy/base_type = &"PanelContainer"
+ContainerFancy/constants/separation = 0
+ContainerFancy/styles/panel = SubResource("StyleBoxTexture_8vtvq")
+ContainerTitle/base_type = &"PanelContainer"
+ContainerTitle/styles/panel = SubResource("StyleBoxTexture_861fl")
+ExitButton/base_type = &"Button"
+ExitButton/colors/font_color = Color(0.968627, 0.968627, 0.980392, 1)
+ExitButton/font_sizes/font_size = 32
+ExitButton/styles/disabled = SubResource("StyleBoxTexture_hr3ly")
+ExitButton/styles/hover = ExtResource("3_6v32a")
+ExitButton/styles/normal = ExtResource("3_4umoc")
+ExitButton/styles/pressed = ExtResource("5_d0kyo")
+Label/colors/font_color = Color(0.968627, 0.968627, 0.980392, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 7
+MainMenuButton/base_type = &"Button"
+MainMenuButton/colors/font_color = Color(0.968627, 0.968627, 0.980392, 1)
+MainMenuButton/font_sizes/font_size = 32
+MainMenuButton/styles/hover = ExtResource("2_nfdw0")
+MainMenuButton/styles/normal = ExtResource("3_12e66")
+MainMenuButton/styles/pressed = ExtResource("4_evpjc")
+TooltipLabel/font_sizes/font_size = 32
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_v73q6")

@@ -37,8 +37,8 @@ public class ChangeIntelligenceEffect : IEffect
         }
 
     }
-    public ChangeIntelligenceEffect() : this("DummyIntelligenceChangeEffect", "Dummy Intelligence Change Effect", "This is a dummy Intelligence change effect, if you see this, it means something went wrong", 0, 0, "Pure", false) { }
-    public ChangeIntelligenceEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful)
+    public ChangeIntelligenceEffect() : this("DummyIntelligenceChangeEffect", "Dummy Intelligence Change Effect", "This is a dummy Intelligence change effect, if you see this, it means something went wrong", 0, 0, "Pure", false, "Bug") { }
+    public ChangeIntelligenceEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful, string _Source)
     {
         ID = _ID;
         EffectName = _EffectName;
@@ -47,6 +47,6 @@ public class ChangeIntelligenceEffect : IEffect
         Value = _Value;
         EffectType = _EffectType;
         IsHarmful = _IsHarmful;
+        Source = _Source;
     }
-
 }

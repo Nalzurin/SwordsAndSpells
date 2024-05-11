@@ -57,7 +57,7 @@ texture_normal = SubResource("AtlasTexture_ogw1q")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="MarginContainer/GridContainer"]
-texture_filter = 1
+texture_repeat = 1
 layout_mode = 2
 text = "I"
 horizontal_alignment = 1

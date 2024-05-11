@@ -1,25 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- For declaring items -->
-  <assets>
-  <asset>
-	<consumable>
-	  <id>Food_Red_Apple</id>
-	  <name>Apple</name>
-	  <description>A deliciously sweet apple</description>
-	  <sprite>Items/Consumables/Food/Apple_Red.png</sprite> 
-	  <type>Food</type>
-	  <target>Self</target>
-	  <uses>2</uses>
-	  <effects>
-		<effect>
-		  <effectid>HealthRestoration</effectid>
-		  <type>Active</type>
-		  <value>10</value>
-		  <duration>0</duration>
-		</effect>
-	  </effects>
-	  <!-- Filepath starts in Sprites folder -->
-	  
-	</consumable>
-  </asset>
-</assets>
+<?xml version="1.0" encoding="UTF-8"?>
+<Item>
+  <ID>Food_Red_Apple</ID>
+  <Name>Apple</Name>
+  <ItemClass>ItemConsumable</ItemClass>
+  <Description>A deliciously sweet apple</Description>
+  <Rarity>Common</Rarity>
+  <ItemLevel>0</ItemLevel>
+  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+  <Uses>2</Uses>
+  <Type>Food</Type>
+  <Actions type="array">
+	<Action>
+	  <ID>ConsumeAction</ID>
+	  <Name>Consume</Name>
+	  <Description>Consume the item</Description>
+	  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+	  <TargetType>Self</TargetType>
+	<Cost></Cost>
+	  <Effects type ="array">
+		<Effect>
+		  <ID>Healing</ID>
+		  <Name>Nourishment</Name>
+		  <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+		  <Description>The deliciously sweet apple nourishes your body, healing you</Description>
+		  <Duration>0</Duration>
+		  <Value>10</Value>
+		  <EffectType>Physical</EffectType>
+		  <IsHarmful>False</IsHarmful>
+		</Effect>
+	  </Effects>
+	</Action>
+  </Actions>
+</Item>
+

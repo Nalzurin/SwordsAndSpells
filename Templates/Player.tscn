@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2s4pqsq11dyi"]
+[gd_scene load_steps=20 format=3 uid="uid://d2s4pqsq11dyi"]
 
-[ext_resource type="Script" path="res://Scripts/Classes/Entity/PlayerEntity.cs" id="1_03a0b"]
+[ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_wi7xu"]
 [ext_resource type="Script" path="res://Scripts/GUI/DebugValuesScript.cs" id="2_vw3bk"]
 [ext_resource type="Script" path="res://Scripts/Debug/ButtonHealTest.cs" id="3_r4dg4"]
 [ext_resource type="Script" path="res://Scripts/Debug/ButtonDamageTest.cs" id="4_v0lq4"]
@@ -18,14 +18,14 @@
 [ext_resource type="Script" path="res://Scripts/Debug/ButtonIntelligencePlusTest.cs" id="16_bypd6"]
 [ext_resource type="Script" path="res://Scripts/Debug/ButtonLuckMinusTest.cs" id="17_htpqk"]
 [ext_resource type="Script" path="res://Scripts/Debug/ButtonLuckPlusTest.cs" id="18_nro3b"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Camera2DMovement.cs" id="19_7xb3d"]
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("PlayerSprite")]
-script = ExtResource("1_03a0b")
+top_level = true
+script = ExtResource("1_wi7xu")
 PlayerSprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(800, 450)
-scale = Vector2(3, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -368,3 +368,16 @@ layout_mode = 2
 text = "Luck++"
 script = ExtResource("18_nro3b")
 player = NodePath("../../../..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 8192
+limit_bottom = 8192
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+script = ExtResource("19_7xb3d")

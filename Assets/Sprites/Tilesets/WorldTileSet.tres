@@ -1,30 +1,30 @@
 [gd_resource type="TileSet" load_steps=9 format=3]
 
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Desert.png" id="1_xhlnf"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Ocean.png" id="2_4p1o1"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/River.png" id="3_y0uc1"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/TemperateForest.png" id="4_7fqjp"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Desert.png" id="1_xnee0"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/Ocean.png" id="2_gdkv2"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/River.png" id="3_7frr3"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Biomes/TemperateForest.png" id="4_xldpl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ftom0"]
-texture = ExtResource("1_xhlnf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvx5c"]
+texture = ExtResource("1_xnee0")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jookc"]
-texture = ExtResource("2_4p1o1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wvoy"]
+texture = ExtResource("2_gdkv2")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ka0i"]
-texture = ExtResource("3_y0uc1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqt5s"]
+texture = ExtResource("3_7frr3")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31fi3"]
-texture = ExtResource("4_7fqjp")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw1f5"]
+texture = ExtResource("4_xldpl")
 0:0/0 = 0
 
 [resource]
 custom_data_layer_0/name = "IsWalkable"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_ftom0")
-sources/1 = SubResource("TileSetAtlasSource_jookc")
-sources/2 = SubResource("TileSetAtlasSource_0ka0i")
-sources/3 = SubResource("TileSetAtlasSource_31fi3")
+sources/0 = SubResource("TileSetAtlasSource_cvx5c")
+sources/1 = SubResource("TileSetAtlasSource_6wvoy")
+sources/2 = SubResource("TileSetAtlasSource_kqt5s")
+sources/3 = SubResource("TileSetAtlasSource_xw1f5")

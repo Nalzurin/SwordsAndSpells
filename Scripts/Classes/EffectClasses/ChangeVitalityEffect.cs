@@ -37,8 +37,8 @@ public class ChangeVitalityEffect : IEffect
         }
 
     }
-    public ChangeVitalityEffect() : this("DummyVitalityChangeEffect", "Dummy Vitality Change Effect", "This is a dummy Vitality change effect, if you see this, it means something went wrong", 0, 0, "Pure", false) { }
-    public ChangeVitalityEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful)
+    public ChangeVitalityEffect() : this("DummyVitalityChangeEffect", "Dummy Vitality Change Effect", "This is a dummy Vitality change effect, if you see this, it means something went wrong", 0, 0, "Pure", false, "Bug") { }
+    public ChangeVitalityEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful, string _Source)
     {
         ID = _ID;
         EffectName = _EffectName;
@@ -47,6 +47,7 @@ public class ChangeVitalityEffect : IEffect
         Value = _Value;
         EffectType = _EffectType;
         IsHarmful = _IsHarmful;
+        Source = _Source;
     }
 
 }

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dme7lcys4mf5d"]
+
+[ext_resource type="Texture2D" uid="uid://dv4gk5ylu8vxw" path="res://Assets/Sprites/Items/Consumables/Food/Banana.png" id="1_q0kpg"]
+
+[node name="Character" type="HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="CharacterIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_q0kpg")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CharacterName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 32
+text = "Character Name"

@@ -5,12 +5,12 @@ using static System.Collections.Specialized.BitVector32;
 
 public class BaseAction
 {
-   
     public string ID { get; set; }
     public string ActionName { get; set; }
     public string Description { get; set; }
     public string SpritePath { get; set; }
     public string TargetType {  get; set; }
+    public Dictionary<string, int> Cost {  get; set; }
     public List<IEffect> Effects { get; set; }
 
     public void Do_Action(ITargetable target)
@@ -43,8 +43,8 @@ public class BaseAction
         }
         return true;
     }
-    public BaseAction(): this("DummyActionID", "Dummy Action", "If you see this action, something went wrong", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new List<IEffect> {new ChangeHealthEffect() } ) { }
-    public BaseAction(string iD, string actionName, string description, string spritePath, string targetType, List<IEffect> effects)
+    public BaseAction(): this("DummyActionID", "Dummy Action", "If you see this action, something went wrong", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new Dictionary<string, int> { {"Stamina", 1000 } }, new List<IEffect> {new ChangeHealthEffect() } ) { }
+    public BaseAction(string iD, string actionName, string description, string spritePath, string targetType, Dictionary<string,int> cost, List<IEffect> effects)
     {
         ID = iD;
         ActionName = actionName;
@@ -52,5 +52,6 @@ public class BaseAction
         SpritePath = spritePath;
         TargetType = targetType;
         Effects = effects;
+        Cost = cost;
     }
 }

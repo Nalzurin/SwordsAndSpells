@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ability>
+  <!--String-->
+  <ID></ID>
+  <!--String-->
+  <Name></Name>
+  <!--Bool-->
+  <IsActive></IsActive>
+  <!--String-->
+  <Description></Description>
+  <Prerequisites type="array">
+    <!--No need to include prerequisites that the ability wont use-->
+    <!--Int-->
+    <CharacterLevel></CharacterLevel>
+    <Strength></Strength>
+    <Dexterity></Dexterity>
+    <Vitality></Vitality>
+    <Intelligence></Intelligence>
+    <Luck></Luck>
+  </Prerequisites>
+  <!--String-->
+  <SpritePath></SpritePath>
+  <!--If ability is active-->
+  <Actions type="array">
+    <Action>
+      <!--For action schema, see Action.xml-->
+    </Action>
+  </Actions>
+  <!--If ability is passive-->
+  <Effects type="array">
+    <Effect>
+      <!--For effect schema, see Effect.xml-->
+    </Effect>
+  </Effects>
+</Ability>

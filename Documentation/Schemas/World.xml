@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<World>
+  <ID></ID>
+  <Name></Name>
+  <WorldGenSettings>
+    <Size></Size>
+    <Seed></Seed>
+    <Octaves></Octaves>
+    <Lacunarity></Lacunarity>
+    <MinimumBiomeSize></MinimumBiomeSize>
+    <Frequency></Frequency>
+  </WorldGenSettings>
+  <EnemiesPositions>
+    <EnemyPositon>
+      <X></X>
+      <Y></Y>
+      <EnemyId></EnemyId>
+    </EnemyPositon>
+  </EnemiesPositions>
+  <Spawn>
+    <X></X>
+    <Y></Y>
+  </Spawn>
+</World>

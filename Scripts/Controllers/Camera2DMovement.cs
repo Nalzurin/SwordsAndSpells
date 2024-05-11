@@ -1,44 +1,15 @@
 using Godot;
 using System;
 
-public partial class Camera2DMovement : Node2D
+public partial class Camera2DMovement : Camera2D
 {
     // Define the speed of the camera movement
     [Export] public float speed = 2000.0f;
-
-    public override void _Process(double delta)
+    [Export] GameManager gameManager;
+    public override void _Ready()
     {
-        // Create a Vector2 to store the camera's movement direction
-        Vector2 direction = Vector2.Zero;
-
-        // Check for user input and adjust the direction vector accordingly
-        if (Input.IsActionPressed("ui_up"))
-        {
-            direction.Y -= 1;
-        }
-        if (Input.IsActionPressed("ui_down"))
-        {
-            direction.Y += 1;
-        }
-        if (Input.IsActionPressed("ui_left"))
-        {
-            direction.X -= 1;
-        }
-        if (Input.IsActionPressed("ui_right"))
-        {
-            direction.X += 1;
-        }
-
-        // Normalize the direction vector to maintain consistent speed
-        if (direction != Vector2.Zero)
-        {
-            direction = direction.Normalized();
-        }
-
-        // Calculate the movement vector
-        Vector2 movement = direction * speed * (float)delta;
-
-        // Update the camera's position
-        Position += movement;
+        gameManager = (GameManager)GetNode("/root/GameManager");
+        this.LimitBottom = gameManager.CurrentWorld.Settings.Size*16;
+        this.LimitRight = gameManager.CurrentWorld.Settings.Size*16;
     }
 }

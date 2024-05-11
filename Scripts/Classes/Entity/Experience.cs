@@ -94,7 +94,19 @@ public class Experience
     {
         return value >= 50 + level * 100;
     }
-
+    public void SetParent(BaseEntity _parent)
+    {
+        parent = _parent;
+    }
+    public void LevelUpAll()
+    {
+        LevelUpCharacter();
+        LevelUpStrength();
+        LevelUpDexterity();
+        LevelUpVitality();
+        LevelUpIntelligence();
+        LevelUpLuck();
+    }
     public Experience() : this(null, 0, 0, 0, 0, 0, 0) { }
     public Experience(BaseEntity _parent, int _CharacterExp, int _StrengthExp, int _DexterityExp, int _VitalityExp, int _IntelligenceExp, int _LuckExp)
     {
@@ -105,6 +117,7 @@ public class Experience
         VitalityExp = _VitalityExp;
         IntelligenceExp = _IntelligenceExp;
         LuckExp = _LuckExp;
+
 
     }
 

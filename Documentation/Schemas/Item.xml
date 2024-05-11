@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item>
+  <!--String-->
+  <ID></ID>
+  <!--String-->
+  <Name></Name>
+  <!--String(ItemConsumable, ItemGear for now)-->
+  <ItemClass></ItemClass>
+  <!--String-->
+  <Description></Description>
+  <!--String(common, rare, epic)-->
+  <Rarity></Rarity>
+  <!--Int-->
+  <ItemLevel></ItemLevel>
+  <!--String-->
+  <SpritePath></SpritePath>
+  <!--If item is consumable-->
+  <!--Int-->
+  <Uses></Uses>
+  <!--String-->
+  <Type></Type>
+  <Actions type="array">
+    <action>
+      <!--For action schema, see Action.xml-->
+    </action>
+  </Actions>
+  <!--If item is gear-->
+  <!--Int(0 - Weapon, 1 - Head, 2 - Chest, 3 - Legs, 4 - Feet, 5 - Ring 1, 6 - Ring 2, 7 - Amulet, 8 - Charm)-->
+  <GearSlot></GearSlot>
+  <Effects type="array">
+    <effect>
+      <!--For effect schema, see Effect.xml-->
+    </effect>
+  </Effects>
+  <Actions type="array">
+    <action>
+      <!--For action schema, see Action.xml-->
+    </action>
+  </Actions>
+</Item>

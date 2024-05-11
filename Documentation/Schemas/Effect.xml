@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Effect>
+  <!--String-->
   <ID></ID>
+  <!--String-->
   <Name></Name>
+  <!--String (C# classes: ChangeHealthEffect, ChangeStaminaEffect, ChangeManaEffect, ChangeStrengthEffect and etc. for Dexterity, Vitality, Intelligence, Luck-->
   <EffectTypeClass></EffectTypeClass>
+  <!--String-->
   <Description></Description>
+  <!--Int-->
   <Duration></Duration>
+  <!--Int-->
   <Value></Value>
+  <!--String, if applicable(Magical, Physical, Pure, etc.)-->
   <EffectType></EffectType>
+  <!--Bool-->
+  <IsHarmful></IsHarmful>
 </Effect>

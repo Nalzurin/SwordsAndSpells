@@ -4,7 +4,7 @@ using System;
 public partial class ButtonHealTest : Button
 {
 	[Export]
-	PlayerEntity player;
+    PlayerController player;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -12,7 +12,7 @@ public partial class ButtonHealTest : Button
 	}
 	public void OnPress()
 	{
-		player.Effects.AddEffect(new ChangeHealthEffect("TestEffect", "Healing", "Magical healing", 0, 10, "Heal", false));
+		player.PlayerData.Effects.AddEffect(new ChangeHealthEffect("TestEffect", "Healing", "Magical healing", 0, 10, "Heal", false, "Test"));
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

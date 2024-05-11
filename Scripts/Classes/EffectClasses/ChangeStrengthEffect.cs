@@ -37,8 +37,8 @@ public class ChangeStrengthEffect : IEffect
         }
 
     }
-    public ChangeStrengthEffect() : this("DummyStrengthChangeEffect", "Dummy Strength Change Effect", "This is a dummy strength change effect, if you see this, it means something went wrong", 0, 0, "Pure", false) { }
-    public ChangeStrengthEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful)
+    public ChangeStrengthEffect() : this("DummyStrengthChangeEffect", "Dummy Strength Change Effect", "This is a dummy strength change effect, if you see this, it means something went wrong", 0, 0, "Pure", false, "Bug") { }
+    public ChangeStrengthEffect(string _ID, string _EffectName, string _Description, int _Duration, int _Value, string _EffectType, bool _IsHarmful, string _Source)
     {
         ID = _ID;
         EffectName = _EffectName;
@@ -47,6 +47,7 @@ public class ChangeStrengthEffect : IEffect
         Value = _Value;
         EffectType = _EffectType;
         IsHarmful = _IsHarmful;
+        Source = _Source;
     }
 
 }

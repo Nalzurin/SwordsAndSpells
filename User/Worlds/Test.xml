@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<World>
+  <ID>Test</ID>
+  <Name>Test</Name>
+  <WorldGenSettings>
+    <Size>128</Size>
+    <Seed>22</Seed>
+    <Octaves>4</Octaves>
+    <Lacunarity>1</Lacunarity>
+    <MinimumBiomeSize>15</MinimumBiomeSize>
+    <Frequency>0.001</Frequency>
+  </WorldGenSettings>
+  <EnemiesPositions>
+    <EnemyPositon>
+      <X>0</X>
+      <Y>0</Y>
+      <EnemyId>Enemy_Zombie</EnemyId>
+    </EnemyPositon>
+  </EnemiesPositions>
+  <Spawn>
+    <X>1</X>
+    <Y>1</Y>
+  </Spawn>
+</World>

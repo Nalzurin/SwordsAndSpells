@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityPlayer>
+    <ID>Player_Nalzurin</ID>
+    <Name>Nalzurin</Name>
+    <Description>This is big</Description>
+    <SpritePath>Assets/Sprites/Items/Consumables/Food/Orange.png</SpritePath>
+    <TargetType>Player</TargetType>
+    <Effects />
+    <Actions>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Slash</Name>
+            <Description>A simple sword slash</Description>
+            <SpritePath>Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>10</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>SwordAttackAction</ID>
+            <Name>Overhead</Name>
+            <Description>A strong overhead sword attack</Description>
+            <SpritePath>Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>25</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The sword hits, damaging you</Description>
+                    <Duration>0</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+    </Actions>
+    <Abilities>
+        <Ability>Ability_Bloodbath</Ability>
+    </Abilities>
+    <Characteristics>
+        <Level>10</Level>
+        <HealthCurrent>65</HealthCurrent>
+        <StaminaCurrent>221</StaminaCurrent>
+        <ManaCurrent>195</ManaCurrent>
+        <StrengthCurrent>15</StrengthCurrent>
+        <DexterityCurrent>20</DexterityCurrent>
+        <VitalityCurrent>10</VitalityCurrent>
+        <IntelligenceCurrent>30</IntelligenceCurrent>
+        <LuckCurrent>50</LuckCurrent>
+    </Characteristics>
+    <Experience>
+        <CharacterExp>1000</CharacterExp>
+        <StrengthExp>1500</StrengthExp>
+        <DexterityExp>2000</DexterityExp>
+        <VitalityExp>1000</VitalityExp>
+        <IntelligenceExp>3000</IntelligenceExp>
+        <LuckExp>5000</LuckExp>
+    </Experience>
+    <Inventory>
+        <Item>
+            <Index>0</Index>
+            <ID>Common_Steel_Sword</ID>
+        </Item>
+    </Inventory>
+</EntityPlayer>

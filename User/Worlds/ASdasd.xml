@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<World>
+    <ID>WorldASdasd</ID>
+    <Name>ASdasd</Name>
+    <WorldGenSettings>
+        <Size>1024</Size>
+        <Seed>0</Seed>
+        <Lacunarity>1</Lacunarity>
+        <MinimumBiomeSize>20</MinimumBiomeSize>
+        <Octaves>4</Octaves>
+        <Frequency>0.001</Frequency>
+    </WorldGenSettings>
+    <EnemiesPositions />
+    <Spawn>
+        <X>0</X>
+        <Y>0</Y>
+    </Spawn>
+</World>

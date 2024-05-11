@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityPlayer>
+    <ID>DummyEntityID</ID>
+    <Name>DummyEntity</Name>
+    <Description>DummyDescription</Description>
+    <SpritePath>Assets/Sprites/Items/Consumables/Food/Lemon.png</SpritePath>
+    <TargetType>Dummy</TargetType>
+    <Effects />
+    <Actions />
+    <Abilities />
+    <Characteristics>
+        <Level>1</Level>
+        <HealthCurrent>50</HealthCurrent>
+        <StaminaCurrent>50</StaminaCurrent>
+        <ManaCurrent>50</ManaCurrent>
+        <StrengthCurrent>10</StrengthCurrent>
+        <DexterityCurrent>10</DexterityCurrent>
+        <VitalityCurrent>10</VitalityCurrent>
+        <IntelligenceCurrent>10</IntelligenceCurrent>
+        <LuckCurrent>10</LuckCurrent>
+    </Characteristics>
+    <Experience>
+        <CharacterExp>0</CharacterExp>
+        <StrengthExp>0</StrengthExp>
+        <DexterityExp>0</DexterityExp>
+        <VitalityExp>0</VitalityExp>
+        <IntelligenceExp>0</IntelligenceExp>
+        <LuckExp>0</LuckExp>
+    </Experience>
+    <Inventory />
+</EntityPlayer>

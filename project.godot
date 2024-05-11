@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 AssetManager="*res://Scripts/AssetManager.cs"
 Logger="*res://Scripts/Debug/Logger.cs"
 GameManager="*res://Scripts/GameManager.cs"
+Settings="*res://Scripts/Settings.cs"
+SaveSystem="*res://Scripts/SaveSystem.cs"
 
 [display]
 
@@ -31,6 +33,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="SwordsAndSpells"
+
+[gui]
+
+theme/custom="res://Assets/Themes/MainTheme.tres"
 
 [rendering]
 

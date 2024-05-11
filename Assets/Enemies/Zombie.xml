@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityEnemy>
+  <ID>Enemy_Zombie</ID>
+  <!--String-->
+  <Name>Zombie</Name>
+  <!--String-->
+  <Description>A corpse of a person, animated by dark magic</Description>
+  <!--String-->
+  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>  
+  <Rarity>Common</Rarity>
+  <Biomes>
+    <Biome>Biome_Desert</Biome>
+  </Biomes>
+  <TargetType>Enemy</TargetType>
+  <Effects type="array">
+    <Effect>
+      <ID>UndeadRegeneration</ID>
+      <Name>Undead Regeneration</Name>
+      <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+      <Description>The dark magic restores part of your rotting corpse</Description>
+      <Duration>-1</Duration>
+      <Value>5</Value>
+      <EffectType>Magic</EffectType>
+      <IsHarmful>False</IsHarmful>
+    </Effect>
+  </Effects>
+  <Actions type="array">
+    <Action>
+      <ID>ZombieSlamAttack</ID>
+      <Name>Slam</Name>
+      <Description>Slamming attack</Description>
+      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <TargetType>Enemy</TargetType>
+      <Cost>
+        <Stamina>25</Stamina>
+      </Cost>
+      <Effects type ="array">
+        <Effect>
+          <ID>DamageEffect</ID>
+          <Name>Damage</Name>
+          <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+          <Description>The zombie hits you with its rotting arms, damaging you</Description>
+          <Duration>0</Duration>
+          <Value>-25</Value>
+          <EffectType>Physical</EffectType>
+          <IsHarmful>True</IsHarmful>
+        </Effect>
+      </Effects>
+    </Action>
+  </Actions>
+  <Abilities type="array">
+    <Ability>Ability_Bloodbath</Ability>
+  </Abilities>
+  <Characteristics>
+    <Level>1</Level>
+    <Health>50</Health>
+    <Stamina>100</Stamina>
+    <Mana>0</Mana>
+    <Strength>20</Strength>
+    <Dexterity>5</Dexterity>
+    <Vitality>50</Vitality>
+    <Intelligence>0</Intelligence>
+    <Luck>0</Luck>
+  </Characteristics>
+</EntityEnemy>

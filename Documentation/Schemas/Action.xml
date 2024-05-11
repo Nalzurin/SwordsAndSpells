@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Action>
+  <!--String-->
+  <ID></ID>
+  <!--String-->
+  <Name></Name>
+  <!--String-->
+  <Description></Description>
+  <!--String-->
+  <SpritePath></SpritePath>
+  <!--String(Self,Enemy,Ally)-->
+  <TargetType></TargetType>
+  <Cost type="array">
+    <!--Int, dont include nodes if you dont use them-->
+    <Stamina></Stamina>
+    <Mana></Mana>
+    <Health></Health>
+  </Cost>
+  <Effects type="array">
+    <Effect>
+      <!--For Effect schema, see Effect.xml-->
+    </Effect>
+  </Effects>
+</Action>
