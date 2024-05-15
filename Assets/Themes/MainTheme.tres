@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://corb2440xm1na"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://corb2440xm1na"]
 
 [ext_resource type="FontFile" uid="uid://c1er4qtdiotps" path="res://Assets/Fonts/clacon2.ttf" id="1_docfs"]
 [ext_resource type="Texture2D" uid="uid://b70xf4grecvx5" path="res://Assets/GUI/Border All 2.png" id="1_ytcpc"]
@@ -10,6 +10,42 @@
 [ext_resource type="StyleBox" uid="uid://cmgv4c786mmt3" path="res://Assets/Themes/MainMenuButtonTextures/PressedButtonMainMenu.tres" id="4_evpjc"]
 [ext_resource type="StyleBox" uid="uid://bufrc3j1e2fs4" path="res://Assets/Themes/MainMenuButtonTextures/PressedExitButton.tres" id="5_d0kyo"]
 [ext_resource type="Texture2D" uid="uid://bjgudbv26m25a" path="res://Assets/GUI/Sliders.png" id="9_l0xte"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uhe1"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 0.901961)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92549, 0.933333, 0.968627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f72ab"]
+bg_color = Color(0, 0, 0, 0.901961)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i861j"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.901961)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.847059, 0.870588, 0.92549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5f13"]
 atlas = ExtResource("1_ytcpc")
@@ -64,6 +100,11 @@ BigLabel/constants/outline_size = 15
 BigLabel/font_sizes/font_size = 64
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 8
+ButtonCombat/base_type = &"Button"
+ButtonCombat/styles/focus = null
+ButtonCombat/styles/hover = SubResource("StyleBoxFlat_6uhe1")
+ButtonCombat/styles/normal = SubResource("StyleBoxFlat_f72ab")
+ButtonCombat/styles/pressed = SubResource("StyleBoxFlat_i861j")
 ContainerFancy/base_type = &"PanelContainer"
 ContainerFancy/constants/separation = 0
 ContainerFancy/styles/panel = SubResource("StyleBoxTexture_8vtvq")

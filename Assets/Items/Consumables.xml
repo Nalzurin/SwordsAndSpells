@@ -10,26 +10,26 @@
   <Uses>2</Uses>
   <Type>Food</Type>
   <Actions type="array">
-	<Action>
-	  <ID>ConsumeAction</ID>
-	  <Name>Consume</Name>
-	  <Description>Consume the item</Description>
-	  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
-	  <TargetType>Self</TargetType>
-	<Cost></Cost>
-	  <Effects type ="array">
-		<Effect>
-		  <ID>Healing</ID>
-		  <Name>Nourishment</Name>
-		  <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
-		  <Description>The deliciously sweet apple nourishes your body, healing you</Description>
-		  <Duration>0</Duration>
-		  <Value>10</Value>
-		  <EffectType>Physical</EffectType>
-		  <IsHarmful>False</IsHarmful>
-		</Effect>
-	  </Effects>
-	</Action>
+    <Action>
+      <ID>ConsumeAction</ID>
+      <Name>Consume</Name>
+      <Description>Consume the item</Description>
+      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <TargetType>Self</TargetType>
+      <Cost></Cost>
+      <Effects type ="array">
+        <Effect>
+          <ID>Healing</ID>
+          <Name>Nourishment</Name>
+          <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+          <Description>The deliciously sweet apple nourishes your body, healing you</Description>
+          <Duration>0</Duration>
+          <Value>10</Value>
+          <EffectType>Physical</EffectType>
+          <IsHarmful>False</IsHarmful>
+        </Effect>
+      </Effects>
+    </Action>
   </Actions>
 </Item>
 

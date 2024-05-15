@@ -90,9 +90,13 @@ public class Experience
         }
     }
 
+    public int Formula(int level)
+    {
+        return 50 + level * 100;
+    }
     private bool ExpFormula(int value, int level)
     {
-        return value >= 50 + level * 100;
+        return value >= Formula(level) ;
     }
     public void SetParent(BaseEntity _parent)
     {

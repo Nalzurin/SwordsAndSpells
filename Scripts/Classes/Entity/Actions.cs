@@ -11,6 +11,10 @@ public class Actions
     {
         this.parent = parent;
     }
+    public void ClearActions()
+    {
+        actions = new List<BaseAction>();
+    }
     public void AddAction(BaseAction action)
     {
         actions.Add(action);

@@ -9,6 +9,7 @@
     <Dexterity>50</Dexterity>
   </Prerequisites>
   <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+  <Attribute>Dexterity</Attribute>
   <Actions type="array">
     <Action>
       <ID>Ability_Bloodbath_Action</ID>

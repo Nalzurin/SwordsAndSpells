@@ -7,30 +7,30 @@
   <Rarity>Common</Rarity>
   <ItemLevel>1</ItemLevel>
   <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
-  <GearSlot></GearSlot>
+  <GearSlot>8</GearSlot>
   <Actions type="array">
-	<Action>
-	  <ID>SwordAttackAction</ID>
-	  <Name>Slash</Name>
-	  <Description>A simple sword slash</Description>
-	  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
-	  <TargetType>Enemy</TargetType>
-    <Cost type="array">
-      <Stamina>10</Stamina>
-    </Cost>
-	  <Effects type ="array">
-		<Effect>
-		  <ID>DamageEffect</ID>
-		  <Name>Damage</Name>
-		  <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
-		  <Description>The sword hits, damaging you</Description>
-		  <Duration>0</Duration>
-		  <Value>-10</Value>
-		  <EffectType>Physical</EffectType>
-		  <IsHarmful>True</IsHarmful>
-		</Effect>
-	  </Effects>
-	</Action>
+    <Action>
+      <ID>SwordAttackAction</ID>
+      <Name>Slash</Name>
+      <Description>A simple sword slash</Description>
+      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <TargetType>Enemy</TargetType>
+      <Cost type="array">
+        <Stamina>10</Stamina>
+      </Cost>
+      <Effects type ="array">
+        <Effect>
+          <ID>DamageEffect</ID>
+          <Name>Damage</Name>
+          <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+          <Description>The sword hits, damaging you</Description>
+          <Duration>0</Duration>
+          <Value>-10</Value>
+          <EffectType>Physical</EffectType>
+          <IsHarmful>True</IsHarmful>
+        </Effect>
+      </Effects>
+    </Action>
     <Action>
       <ID>SwordAttackAction</ID>
       <Name>Overhead</Name>

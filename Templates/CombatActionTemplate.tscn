@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://djujgxl65hgim"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/CombatActionTemplate.cs" id="1_7me7i"]
+[ext_resource type="Texture2D" uid="uid://dv4gk5ylu8vxw" path="res://Assets/Sprites/Items/Consumables/Food/Banana.png" id="3_giq2x"]
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("ActionIcon", "ActionName", "ActionCost", "ActionButton")]
+offset_right = 210.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_7me7i")
+ActionIcon = NodePath("MarginContainer/AbilityContainer/AbilityIcon")
+ActionName = NodePath("MarginContainer/AbilityContainer/AbilityValues/AbilityName")
+ActionCost = NodePath("MarginContainer/AbilityContainer/AbilityValues/AbilityCost")
+ActionButton = NodePath("Button")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"ButtonCombat"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AbilityContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AbilityIcon" type="TextureRect" parent="MarginContainer/AbilityContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("3_giq2x")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AbilityValues" type="VBoxContainer" parent="MarginContainer/AbilityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="AbilityName" type="Label" parent="MarginContainer/AbilityContainer/AbilityValues"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Inner Strength"
+vertical_alignment = 1
+
+[node name="AbilityCost" type="Label" parent="MarginContainer/AbilityContainer/AbilityValues"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "MP:40 SP:40 HP:40"
+vertical_alignment = 1

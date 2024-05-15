@@ -6,6 +6,14 @@ public partial class Characteristics : Node
 {
     [Signal]
     public delegate void CharacteristicsChangedEventHandler(string Entity);
+    [Signal]
+    public delegate void HealthChangedEventHandler();
+    [Signal]
+    public delegate void StaminaChangedEventHandler();
+    [Signal]
+    public delegate void ManaChangedEventHandler();
+    [Signal]
+    public delegate void AttributesChangedEventHandler();
 
     public struct AttributeModifier
     {
@@ -69,6 +77,7 @@ public partial class Characteristics : Node
         {
             HealthCurrent = 0; // Clamp to 0
         }
+        EmitSignal(SignalName.HealthChanged);
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void ChangeStamina(int amount)
@@ -82,6 +91,7 @@ public partial class Characteristics : Node
         {
             StaminaCurrent = 0; // Clamp to 0
         }
+        EmitSignal(SignalName.StaminaChanged);
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void ChangeMana(int amount)
@@ -95,6 +105,7 @@ public partial class Characteristics : Node
         {
             ManaCurrent = 0; // Clamp to 0
         }
+        EmitSignal(SignalName.ManaChanged);
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
     public void IncreaseLevel()
@@ -242,6 +253,7 @@ public partial class Characteristics : Node
             HealthMax += modifier.value;
             HealthCurrent += modifier.value;
         }
+        EmitSignal(SignalName.HealthChanged);
         //stamina
         int staminaBasePrevious = StaminaBase;
         if (parent is PlayerEntity)
@@ -255,6 +267,7 @@ public partial class Characteristics : Node
             StaminaMax += modifier.value;
             StaminaCurrent += modifier.value;
         }
+        EmitSignal(SignalName.StaminaChanged);
         //mana
         int manaBasePrevious = ManaBase;
         if (parent is PlayerEntity)
@@ -268,6 +281,7 @@ public partial class Characteristics : Node
             ManaMax += modifier.value;
             ManaCurrent += modifier.value;
         }
+        EmitSignal(SignalName.ManaChanged);
         CalculateMultipliers();
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
@@ -282,6 +296,7 @@ public partial class Characteristics : Node
         {
             DodgeChance += modifier.value;
         }
+        EmitSignal(SignalName.AttributesChanged);
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }
 

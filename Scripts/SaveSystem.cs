@@ -58,6 +58,7 @@ public partial class SaveSystem : Node
         string name = root.SelectSingleNode("Name")?.InnerText ?? "";
         string description = root.SelectSingleNode("Description")?.InnerText ?? "";
         string spritePath = root.SelectSingleNode("SpritePath")?.InnerText ?? "";
+        string imagePath = root.SelectSingleNode("ImagePath")?.InnerText ?? "";
         string targetType = root.SelectSingleNode("TargetType")?.InnerText ?? "Player";
 
         // Load Effects and Actions
@@ -74,7 +75,7 @@ public partial class SaveSystem : Node
         Experience experience = LoadExperience(root.SelectSingleNode("Experience"));
         Inventory inventory = LoadInventory(root.SelectSingleNode("Inventory"));
         // Create and return a PlayerEntity instance
-        PlayerEntity playerEntity = new PlayerEntity(id, name, description, spritePath, targetType, effects, abilities, actions, characteristics, experience, inventory);
+        PlayerEntity playerEntity = new PlayerEntity(id, name, description, imagePath, spritePath, targetType, effects, abilities, actions, characteristics, experience, inventory);
         playerEntity.Effects.SetParent(playerEntity);
         playerEntity.Actions.SetParent(playerEntity);
         playerEntity.Abilities.SetParent(playerEntity);
@@ -170,7 +171,6 @@ public partial class SaveSystem : Node
     private BaseAbility LoadAbility(XmlNode abilityNode)
     {
         BaseAbility baseAbility = assetManager.GetAbility(abilityNode.InnerText);
-
         return baseAbility;
     }
 
@@ -226,13 +226,8 @@ public partial class SaveSystem : Node
             WriteElement(writer, "Name", player.EntityName);
             WriteElement(writer, "Description", player.Description);
             WriteElement(writer, "SpritePath", player.SpritePath);
+            WriteElement(writer, "ImagePath", player.PlayerImagePath);
             WriteElement(writer, "TargetType", player.TargetType);
-
-            // Save Effects
-            WriteEffects(writer, player.Effects);
-
-            // Save Actions
-            WriteActions(writer, player.Actions);
 
             // Save Abilities
             WriteAbilities(writer, player.Abilities);

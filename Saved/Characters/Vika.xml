@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityPlayer>
+    <ID>Player_Vika</ID>
+    <Name>Vika</Name>
+    <Description>Player</Description>
+    <SpritePath>User/Sprites/Characters/Sister_Garaele.jpg</SpritePath>
+    <TargetType>Player</TargetType>
+    <Effects />
+    <Actions>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+        <Action>
+            <ID>Ability_Bloodbath_Action</ID>
+            <Name>Bloodbath</Name>
+            <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
+            <SpritePath>Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
+            <TargetType>Enemy</TargetType>
+            <Cost>
+                <Stamina>50</Stamina>
+            </Cost>
+            <Effects>
+                <Effect>
+                    <ID>DamageEffect</ID>
+                    <Name>Damage</Name>
+                    <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
+                    <Description>The haemorrhaging make you rapidly lose blood</Description>
+                    <Duration>5</Duration>
+                    <IsHarmful>True</IsHarmful>
+                </Effect>
+            </Effects>
+        </Action>
+    </Actions>
+    <Abilities>
+        <Ability>Ability_Bloodbath</Ability>
+    </Abilities>
+    <Characteristics>
+        <Level>1</Level>
+        <HealthCurrent>50</HealthCurrent>
+        <StaminaCurrent>50</StaminaCurrent>
+        <ManaCurrent>50</ManaCurrent>
+        <StrengthCurrent>1</StrengthCurrent>
+        <DexterityCurrent>1</DexterityCurrent>
+        <VitalityCurrent>1</VitalityCurrent>
+        <IntelligenceCurrent>1</IntelligenceCurrent>
+        <LuckCurrent>1</LuckCurrent>
+    </Characteristics>
+    <Experience>
+        <CharacterExp>0</CharacterExp>
+        <StrengthExp>0</StrengthExp>
+        <DexterityExp>0</DexterityExp>
+        <VitalityExp>0</VitalityExp>
+        <IntelligenceExp>0</IntelligenceExp>
+        <LuckExp>0</LuckExp>
+    </Experience>
+    <Inventory>
+        <Item>
+            <Index>9</Index>
+            <ID>Common_Steel_Sword</ID>
+        </Item>
+    </Inventory>
+</EntityPlayer>

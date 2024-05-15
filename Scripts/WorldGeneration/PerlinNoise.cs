@@ -84,6 +84,7 @@ public partial class PerlinNoise : Node
         GD.Print(gameManager.currentWorldBiomeMap.Length);
         if(gameManager.CurrentState == "TRAVEL")
         {
+            gameManager.UpdatePathfinding();
             var scene = GD.Load<PackedScene>("res://Templates/Player.tscn");
             var player = scene.Instantiate();
             CallDeferred("add_sibling", player);

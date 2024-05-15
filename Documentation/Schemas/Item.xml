@@ -25,7 +25,7 @@
     </action>
   </Actions>
   <!--If item is gear-->
-  <!--Int(0 - Weapon, 1 - Head, 2 - Chest, 3 - Legs, 4 - Feet, 5 - Ring 1, 6 - Ring 2, 7 - Amulet, 8 - Charm)-->
+  <!--Int(0 - Head, 1 - Chest, 2 -Legs , 3 - Feet, 4 - Ring 1, 5 - Ring 2, 6 - Amulet, 7 - Charm, 8 - Weapon)-->
   <GearSlot></GearSlot>
   <Effects type="array">
     <effect>

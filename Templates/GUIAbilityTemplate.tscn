@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://diubrfmcxe7d3"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/GUIAbilityTemplate.cs" id="1_ejn6m"]
+[ext_resource type="Texture2D" uid="uid://dv4gk5ylu8vxw" path="res://Assets/Sprites/Items/Consumables/Food/Banana.png" id="1_gdray"]
+[ext_resource type="Texture2D" uid="uid://b70xf4grecvx5" path="res://Assets/GUI/Border All 2.png" id="3_kfkj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drbfd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_veqjb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1icy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qa8i"]
+atlas = ExtResource("3_kfkj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgjkt"]
+texture = SubResource("AtlasTexture_1qa8i")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("AbilityIcon", "AbilityName", "AbilityStatus")]
+offset_right = 166.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_ejn6m")
+AbilityIcon = NodePath("MarginContainer/AbilityContainer/AbilityIcon")
+AbilityName = NodePath("MarginContainer/AbilityContainer/AbilityValues/AbilityName")
+AbilityStatus = NodePath("MarginContainer/AbilityContainer/AbilityValues/Ability Status")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_drbfd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_veqjb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l1icy")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mgjkt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="AbilityContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AbilityIcon" type="TextureRect" parent="MarginContainer/AbilityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("1_gdray")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AbilityValues" type="VBoxContainer" parent="MarginContainer/AbilityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="AbilityName" type="Label" parent="MarginContainer/AbilityContainer/AbilityValues"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Inner Strength"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Ability Status" type="Label" parent="MarginContainer/AbilityContainer/AbilityValues"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Active"
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="OnPress"]

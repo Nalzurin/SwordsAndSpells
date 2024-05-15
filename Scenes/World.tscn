@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cesyv6fxqck5" path="res://Assets/Sprites/Tilesets/placeholder_overworld.png" id="2_68cuc"]
 [ext_resource type="Texture2D" uid="uid://5jhrm2vlamfv" path="res://Assets/Sprites/Tilesets/placeholder_terrain_temperate.png" id="2_ld00m"]
 [ext_resource type="Script" path="res://Scenes/FPS_Counter.cs" id="5_ngky0"]
-[ext_resource type="PackedScene" uid="uid://br2abkd3r22df" path="res://Scenes/GUI.tscn" id="6_loaqh"]
+[ext_resource type="PackedScene" uid="uid://br2abkd3r22df" path="res://Scenes/TravelGUI.tscn" id="6_loaqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g0fe"]
 texture = ExtResource("2_ld00m")

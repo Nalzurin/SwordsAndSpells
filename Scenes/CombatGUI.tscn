@@ -1,0 +1,419 @@
+[gd_scene load_steps=18 format=3 uid="uid://ui1a36qh6d8k"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/CombatMenu.cs" id="1_08q2e"]
+[ext_resource type="Texture2D" uid="uid://wsvlfdl3achd" path="res://Assets/Art/Forest.jpg" id="1_63s17"]
+[ext_resource type="Texture2D" uid="uid://dt0dkkmcmvmme" path="res://Assets/Sprites/Entities/PlayerEntities/SwordsmanTemplate.png" id="2_1smh0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubeag"]
+texture = ExtResource("1_63s17")
+
+[sub_resource type="ImageTexture" id="ImageTexture_quhca"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_10b68"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_7kxxq"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_olrdu"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_y7xav"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_og8ia"]
+color = Color(1, 0, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx2nk"]
+atlas = ExtResource("2_1smh0")
+region = Rect2(1, 2, 14, 12)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vnt44"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fhcq1"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e5mkc"]
+color = Color(0, 1, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_umakt"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hupt5"]
+color = Color(0, 0, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yrrh"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CombatGUI" type="CanvasLayer" node_paths=PackedStringArray("ActionsMenuContainer", "ActionsMenuGrid", "ActionsMenuBackButton", "EnemySprite", "GearMenuButton", "ItemMenuButton", "AbilityMenuButton", "MiscMenuButton", "EnemyHealh", "EnemyName", "EnemyLevel", "PlayerHealth", "PlayerMana", "PlayerStamina", "PlayerHealthValue", "PlayerManaValue", "PlayerStaminaValue")]
+layer = 4
+script = ExtResource("1_08q2e")
+ActionsMenuContainer = NodePath("PanelContainer/ActionsContainer")
+ActionsMenuGrid = NodePath("PanelContainer/ActionsContainer/VBoxContainer/Actions/MarginContainer/ScrollContainer/GridContainer")
+ActionsMenuBackButton = NodePath("PanelContainer/ActionsContainer/VBoxContainer/HBoxContainer/ButtonBack")
+EnemySprite = NodePath("PanelContainer/VBoxContainer/EnemyIcon")
+GearMenuButton = NodePath("PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonGear")
+ItemMenuButton = NodePath("PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonItem")
+AbilityMenuButton = NodePath("PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonAbility")
+MiscMenuButton = NodePath("PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonMisc")
+EnemyHealh = NodePath("PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/EnemyHealth")
+EnemyName = NodePath("PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/EnemyName")
+EnemyLevel = NodePath("PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/EnemyLevel")
+PlayerHealth = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerHealth")
+PlayerMana = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerMana")
+PlayerStamina = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerStamina")
+PlayerHealthValue = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerHealthValue")
+PlayerManaValue = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerManaValue")
+PlayerStaminaValue = NodePath("PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2/PlayerStaminaValue")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_ubeag")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="EnemyName" type="Label" parent="PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 64
+text = "Enemy"
+horizontal_alignment = 1
+
+[node name="EnemyLevel" type="Label" parent="PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Level 15"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="EnemyHealth" type="HSlider" parent="PanelContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("ImageTexture_quhca")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_10b68")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_7kxxq")
+theme_override_icons/tick = SubResource("ImageTexture_olrdu")
+theme_override_styles/slider = SubResource("StyleBoxLine_y7xav")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_og8ia")
+value = 100.0
+editable = false
+scrollable = false
+
+[node name="EnemyIcon" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+texture = SubResource("AtlasTexture_qx2nk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PlayerStatus" type="Panel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/PlayerStatus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="PlayerHealth" type="HSlider" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("ImageTexture_quhca")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_10b68")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_7kxxq")
+theme_override_icons/tick = SubResource("ImageTexture_olrdu")
+theme_override_styles/slider = SubResource("StyleBoxLine_vnt44")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_og8ia")
+editable = false
+scrollable = false
+
+[node name="PlayerHealthValue" type="Label" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "1/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerStamina" type="HSlider" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("ImageTexture_quhca")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_10b68")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_7kxxq")
+theme_override_icons/tick = SubResource("ImageTexture_olrdu")
+theme_override_styles/slider = SubResource("StyleBoxLine_fhcq1")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_e5mkc")
+editable = false
+scrollable = false
+
+[node name="PlayerStaminaValue" type="Label" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "1/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerMana" type="HSlider" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("ImageTexture_quhca")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_10b68")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_7kxxq")
+theme_override_icons/tick = SubResource("ImageTexture_olrdu")
+theme_override_styles/slider = SubResource("StyleBoxLine_umakt")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_hupt5")
+editable = false
+scrollable = false
+
+[node name="PlayerManaValue" type="Label" parent="PanelContainer/VBoxContainer/PlayerStatus/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "1/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuTabs" type="Panel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MenuTabs"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonGear" type="Button" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonCombat"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonGear"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonGear/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "Gear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonItem" type="Button" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonCombat"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonItem"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonItem/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonAbility" type="Button" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonCombat"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonAbility"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonAbility/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "Ability"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMisc" type="Button" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonCombat"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonMisc"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MenuTabs/MarginContainer/HBoxContainer/ButtonMisc/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "Misc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionsContainer" type="PanelContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yrrh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ActionsContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/ActionsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonBack" type="Button" parent="PanelContainer/ActionsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ButtonCombat"
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="Label" type="Label" parent="PanelContainer/ActionsContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Gear"
+horizontal_alignment = 1
+
+[node name="Actions" type="Panel" parent="PanelContainer/ActionsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ActionsContainer/VBoxContainer/Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/ActionsContainer/VBoxContainer/Actions/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/ActionsContainer/VBoxContainer/Actions/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4

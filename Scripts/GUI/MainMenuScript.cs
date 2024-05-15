@@ -179,6 +179,7 @@ public partial class MainMenuScript : CanvasLayer
 
             Image image = Image.LoadFromFile(destinationPath);
             ImageTexture imageTexture = ImageTexture.CreateFromImage(image);
+			
 
             characterSpritePath = destinationPath;
             characterSprite = imageTexture;
@@ -282,7 +283,7 @@ public partial class MainMenuScript : CanvasLayer
     }
     private void NewCharacterCreateCharacter()
 	{
-		PlayerEntity newPlayer = new PlayerEntity("Player_"+newCharName, newCharName,"Player",characterSpritePath,"Player",new Effects(),new Abilities(), new Actions(), new Characteristics(), new Experience(), new Inventory());
+		PlayerEntity newPlayer = new PlayerEntity("Player_"+newCharName, newCharName,"Player",characterSpritePath,"Sprites/Items/Consumable/Kiwi.png","Player",new Effects(),new Abilities(), new Actions(), new Characteristics(), new Experience(), new Inventory());
 		foreach(string ability in selectedAbilities)
 		{
 			newPlayer.Abilities.AddAbility(assetManager.GetAbility(ability));

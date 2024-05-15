@@ -16,12 +16,16 @@ public class ActionLoader
         string targetType = actionNode.SelectSingleNode("TargetType")?.InnerText ?? string.Empty;
         Dictionary<string, int> cost = new Dictionary<string, int>();
         XmlNode costNode = actionNode.SelectSingleNode("Cost");
+
         XmlNode value = costNode.SelectSingleNode("Stamina");
         if(value != null) cost.Add("Stamina", int.Parse(value.InnerText));
+
         value = costNode.SelectSingleNode("Mana");
         if (value != null) cost.Add("Mana", int.Parse(value.InnerText));
+
         value = costNode.SelectSingleNode("Health");
         if (value != null) cost.Add("Health", int.Parse(value.InnerText));
+
         List<IEffect> effects = new List<IEffect>();
         XmlNodeList effectNodes = actionNode.SelectSingleNode("Effects").SelectNodes("Effect");
         foreach (XmlNode effectNode in effectNodes)

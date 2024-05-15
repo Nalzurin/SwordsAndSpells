@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcaie5es0a2kl"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/CombatItemTemplate.cs" id="1_borv2"]
+[ext_resource type="Texture2D" uid="uid://b70xf4grecvx5" path="res://Assets/GUI/Border All 2.png" id="2_tc2fd"]
+[ext_resource type="Texture2D" uid="uid://dv4gk5ylu8vxw" path="res://Assets/Sprites/Items/Consumables/Food/Banana.png" id="3_iqho5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qa8i"]
+atlas = ExtResource("2_tc2fd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgjkt"]
+texture = SubResource("AtlasTexture_1qa8i")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("ItemIcon", "ItemName", "ItemUses", "ItemButton")]
+offset_right = 166.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_borv2")
+ItemIcon = NodePath("MarginContainer/ItemContainer/ItemIcon")
+ItemName = NodePath("MarginContainer/ItemContainer/ItemValues/ItemName")
+ItemUses = NodePath("MarginContainer/ItemContainer/ItemValues/ItemUses")
+ItemButton = NodePath("Button")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"ButtonCombat"
+theme_override_styles/focus = SubResource("StyleBoxTexture_mgjkt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ItemContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/ItemContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("3_iqho5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ItemValues" type="VBoxContainer" parent="MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/ItemContainer/ItemValues"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Inner Strength"
+vertical_alignment = 1
+
+[node name="ItemUses" type="Label" parent="MarginContainer/ItemContainer/ItemValues"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "MP:40 SP:40 HP:40"
+vertical_alignment = 1

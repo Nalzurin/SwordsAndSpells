@@ -18,13 +18,18 @@ public partial class PlayerController : Node2D
         PlayerData = GameManager.CurrentPlayer;
         PlayerSprite.Texture = PlayerData.GetSprite();
         SetStartingPosition();
+        PlayerData.Inventory.InventoryChanged += SavePlayer;
 
+    }
+    private void SavePlayer()
+    {
+        GameManager.SaveCurrentPlayer();
     }
     private void SetStartingPosition()
     {
         if (GameManager.CurrentWorld.WorldSpawn != Vector2I.Zero)
         {
-            Position =  GameManager.CurrentWorld.WorldSpawn;
+            Position =  _tileMap.MapToLocal(GameManager.CurrentWorld.WorldSpawn);
         }
         else
         {
@@ -34,19 +39,20 @@ public partial class PlayerController : Node2D
     private Vector2 randomLocation()
     {
         Random random = new Random();
-        bool IsCorrect = false;
-        Vector2I pos = new Vector2I();
-        while (!IsCorrect)
+
+        while (true)
         {
-            pos = new Vector2I(random.Next(0, GameManager.CurrentWorld.Settings.Size-1), random.Next(0, GameManager.CurrentWorld.Settings.Size-1));
+            Vector2I pos = new Vector2I(random.Next(0, GameManager.CurrentWorld.Settings.Size), random.Next(0, GameManager.CurrentWorld.Settings.Size));
             if (GameManager.GetBiome(pos.X, pos.Y).IsWalkable == true)
             {
-                IsCorrect = true;
                 GameManager.CurrentWorld.WorldSpawn = pos;
                 GameManager.SaveCurrentWorld();
+                return _tileMap.MapToLocal(pos);
             }
+ 
+
         }
-        return _tileMap.MapToLocal(pos);
+       
 
     }
     private bool IsMovementInputPressed(Vector2I direction)
@@ -82,9 +88,10 @@ public partial class PlayerController : Node2D
             GD.Print("Moving");
             // Convert the target tile position back to world position
             Vector2 targetWorldPos = _tileMap.MapToLocal(targetTilePos);
-
+            GameManager.EmitSignalEntitiesUpdate(_tileMap.LocalToMap((Vector2I)targetWorldPos));
             // Update player's position to the target position
             Position = targetWorldPos;
+            
         }
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -100,14 +107,17 @@ public partial class PlayerController : Node2D
             }
             if (Input.IsActionJustPressed("ui_down"))
             {
+                GD.Print("trying to move down");
                 Move(Vector2I.Down);
             }
             if (Input.IsActionJustPressed("ui_left"))
             {
+                GD.Print("trying to move left");
                 Move(Vector2I.Left);
             }
             if (Input.IsActionJustPressed("ui_right"))
             {
+                GD.Print("trying to move right");
                 Move(Vector2I.Right);
             }
         }

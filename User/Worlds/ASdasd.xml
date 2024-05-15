@@ -4,7 +4,7 @@
     <Name>ASdasd</Name>
     <WorldGenSettings>
         <Size>1024</Size>
-        <Seed>0</Seed>
+        <Seed>32629199</Seed>
         <Lacunarity>1</Lacunarity>
         <MinimumBiomeSize>20</MinimumBiomeSize>
         <Octaves>4</Octaves>
@@ -12,7 +12,7 @@
     </WorldGenSettings>
     <EnemiesPositions />
     <Spawn>
-        <X>0</X>
-        <Y>0</Y>
+        <X>295</X>
+        <Y>781</Y>
     </Spawn>
 </World>

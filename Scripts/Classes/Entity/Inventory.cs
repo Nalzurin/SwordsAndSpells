@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-public class Inventory
+public partial class Inventory : Resource
 {
+
+    [Signal]
+    public delegate void InventoryChangedEventHandler();
     public PlayerEntity parent {  get; set; }
     public BaseItem[] items { get; set; }
     public void SetParent(PlayerEntity _parent)
@@ -17,7 +20,11 @@ public class Inventory
             {
                 foreach(IEffect effect in gear.Effects)
                 {
-                    parent.Effects.AddEffect(effect);
+                    if (!parent.Effects.GetActiveEffects().Contains(effect))
+                    {
+                        parent.Effects.AddEffect(effect);
+                    }
+                   
                 }
                 
             }
@@ -31,7 +38,11 @@ public class Inventory
             {
                 foreach (BaseAction action in gear.Actions)
                 {
-                    parent.Actions.AddAction(action);
+                    if (!parent.Actions.actions.Contains(action))
+                    {
+                        parent.Actions.AddAction(action);
+                    }
+                    
                 }
 
             }
@@ -53,6 +64,15 @@ public class Inventory
                     {
                         items[to] = items[from];
                         items[from] = null;
+                        foreach (BaseAction action in gear.Actions)
+                        {
+                            parent.Actions.AddAction(action);
+                        }
+                        foreach (IEffect effect in gear.Effects)
+                        {
+                            parent.Effects.AddEffect(effect);
+                        }
+                        EmitSignal(SignalName.InventoryChanged);
                         return true;
                     }
                     else
@@ -67,13 +87,55 @@ public class Inventory
             }
             items[to] = items[from];
             items[from] = null;
+            EmitSignal(SignalName.InventoryChanged);
             return true;
         }
         if (items[from] != null && items[to] != null)
         {
+            if (to < 9)
+            {
+                if (items[from] is ItemGear gear)
+                {
+                    if (gear.GearSlot == to)
+                    {
+                        ItemGear gearPrevious = (ItemGear)items[to];
+
+                        foreach(BaseAction action in gearPrevious.Actions)
+                        {
+                            parent.Actions.RemoveAction(action);
+                        }
+                        foreach(IEffect effect in gearPrevious.Effects)
+                        {
+                            parent.Effects.RemoveEffect(effect);
+                        }
+                        BaseItem itemGear = items[to];
+                        items[to] = items[from];
+                        items[from] = itemGear;
+                        foreach (BaseAction action in gear.Actions)
+                        {
+                            parent.Actions.AddAction(action);
+                        }
+                        foreach (IEffect effect in gear.Effects)
+                        {
+                            parent.Effects.AddEffect(effect);
+                        }
+                        EmitSignal(SignalName.InventoryChanged);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
             BaseItem item = items[from];
             items[from] = items[to];
             items[to] = item;
+            EmitSignal(SignalName.InventoryChanged);
             return true;
         }
         return false;
@@ -83,18 +145,21 @@ public class Inventory
     public void DeleteItem(int index)
     {
         items[index] = null;
+        EmitSignal(SignalName.InventoryChanged);
     }
     public bool AddItem(int index, BaseItem item)
     {
         if (items[index] == null)
         {
             items[index] = item;
+            EmitSignal(SignalName.InventoryChanged);
             return true;
         }
         else
         {
             return false;
         }
+        
     }
     public bool AddItem(BaseItem item)
     {
@@ -104,6 +169,7 @@ public class Inventory
             if (items[index] == null)
             {
                 items[index] = item;
+                EmitSignal(SignalName.InventoryChanged);
                 return true;
             }
         }

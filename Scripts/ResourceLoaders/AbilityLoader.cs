@@ -75,6 +75,9 @@ public partial class AbilityLoader : Node
         if (spritePathNode != null)
             ability.SpritePath = "Assets/Sprites/" +spritePathNode.InnerText;
 
+        XmlNode attributeNode = abilityNode.SelectSingleNode("Attribute");
+        if (attributeNode != null)
+            ability.Attribute = attributeNode.InnerText;
         // Process prerequisites
         XmlNode prerequisitesNode = abilityNode.SelectSingleNode("Prerequisites");
         if (prerequisitesNode != null)

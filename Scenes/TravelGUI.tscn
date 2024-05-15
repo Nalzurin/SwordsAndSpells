@@ -1,0 +1,1293 @@
+[gd_scene load_steps=40 format=3 uid="uid://br2abkd3r22df"]
+
+[ext_resource type="Texture2D" uid="uid://c3uc2lwtdnsir" path="res://Assets/GUI/Icons.png" id="1_b3pec"]
+[ext_resource type="Script" path="res://Scripts/GUI/TravelUIScript.cs" id="1_t408m"]
+[ext_resource type="Script" path="res://Scripts/GUI/InventoryScript.cs" id="3_5snyl"]
+[ext_resource type="Texture2D" uid="uid://b70xf4grecvx5" path="res://Assets/GUI/Border All 2.png" id="4_78n4n"]
+[ext_resource type="Script" path="res://Scripts/GUI/CharacterMenuScript.cs" id="5_xa6db"]
+[ext_resource type="Texture2D" uid="uid://bfafoebsoo0u1" path="res://Assets/Sprites/Entities/PlayerEntities/BowmanTemplate.png" id="6_8rbi6"]
+[ext_resource type="Script" path="res://Scripts/GUI/AbilitiesMenuScript.cs" id="7_l2w35"]
+[ext_resource type="Texture2D" uid="uid://cgwy6j3m4dry3" path="res://Assets/GUI/GUI_1x_sliced.png" id="8_iltoy"]
+[ext_resource type="Texture2D" uid="uid://dv4gk5ylu8vxw" path="res://Assets/Sprites/Items/Consumables/Food/Banana.png" id="9_jamyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uai1o"]
+atlas = ExtResource("1_b3pec")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da2hy"]
+atlas = ExtResource("1_b3pec")
+region = Rect2(114, 128, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqfa5"]
+atlas = ExtResource("1_b3pec")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb7fk"]
+atlas = ExtResource("1_b3pec")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tvxe"]
+bg_color = Color(0.196078, 0.0313726, 0.443137, 0.827451)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg350"]
+atlas = ExtResource("4_78n4n")
+region = Rect2(128, 64, 65, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23qlu"]
+texture = SubResource("AtlasTexture_hg350")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnva7"]
+atlas = ExtResource("6_8rbi6")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q01fs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1783"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhtsl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxl0d"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv6vg"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bex61"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dj1mg"]
+color = Color(0.184314, 0.129412, 0.262745, 1)
+grow_begin = 2.0
+grow_end = 0.0
+thickness = 6
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpdb1"]
+bg_color = Color(0.588235, 0.643137, 0.937255, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g1ser"]
+color = Color(0.184314, 0.129412, 0.262745, 1)
+grow_begin = 3.0
+grow_end = 0.0
+thickness = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4qwv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8htx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hi2di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ita6b"]
+atlas = ExtResource("4_78n4n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uxhag"]
+texture = SubResource("AtlasTexture_ita6b")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lwcay"]
+load_path = "res://.godot/imported/GUI_1x_sliced.png-0f47c545bfe2f4bf97ff076aa1b687d2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekv7b"]
+atlas = SubResource("CompressedTexture2D_lwcay")
+region = Rect2(18, 136, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wlmm"]
+atlas = ExtResource("8_iltoy")
+region = Rect2(27, 136, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb818"]
+atlas = SubResource("CompressedTexture2D_lwcay")
+region = Rect2(0, 136, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc264"]
+atlas = SubResource("CompressedTexture2D_lwcay")
+region = Rect2(45, 136, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxgm8"]
+atlas = SubResource("CompressedTexture2D_lwcay")
+region = Rect2(36, 136, 8, 8)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_28602"]
+color = Color(0.184314, 0.129412, 0.262745, 1)
+grow_begin = 10.0
+grow_end = 4.0
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rgbr7"]
+color = Color(0.184314, 0.129412, 0.262745, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
+
+[node name="TravelGUI" type="CanvasLayer" node_paths=PackedStringArray("InventoryButton", "CharacterButton", "JournalButton", "AbilitiesButton", "Inventory", "CharacterMenu", "AbilitiesContainer")]
+follow_viewport_enabled = true
+script = ExtResource("1_t408m")
+InventoryButton = NodePath("MarginContainer/GridContainer/TextureButton")
+CharacterButton = NodePath("MarginContainer/GridContainer/TextureButton2")
+JournalButton = NodePath("MarginContainer/GridContainer/TextureButton3")
+AbilitiesButton = NodePath("MarginContainer/GridContainer/TextureButton4")
+Inventory = NodePath("Inventory")
+CharacterMenu = NodePath("CharacterMenu")
+AbilitiesContainer = NodePath("AbilitiesMenu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 43.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_uai1o")
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_da2hy")
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gqfa5")
+stretch_mode = 5
+
+[node name="TextureButton4" type="TextureButton" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_pb7fk")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer"]
+texture_repeat = 1
+layout_mode = 2
+text = "I"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "C"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="PanelContainer" parent="." node_paths=PackedStringArray("InventoryGrid", "GearGrid")]
+visible = false
+custom_minimum_size = Vector2(600, 400)
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 514.0
+offset_bottom = 378.0
+script = ExtResource("3_5snyl")
+InventoryGrid = NodePath("VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid")
+GearGrid = NodePath("VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventory"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Inventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tvxe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Inventory/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+theme_override_font_sizes/font_size = 32
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Inventory/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="PanelContainer" type="PanelContainer" parent="Inventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GearGrid" type="GridContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="ItemContainer1" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer2" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer3" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer4" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer5" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer6" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer7" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer8" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer9" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/CenterContainer/GearGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="InventoryGrid" type="GridContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="ItemContainer1" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer2" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer3" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer4" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer5" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer6" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer7" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer8" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer9" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer10" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer11" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer12" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer13" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer14" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer15" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer16" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer17" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer18" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer19" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer20" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer21" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer22" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer23" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer24" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer25" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer26" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer27" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer28" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer29" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="ItemContainer30" type="PanelContainer" parent="Inventory/VBoxContainer/PanelContainer/HBoxContainer/InventoryGrid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_23qlu")
+
+[node name="CharacterMenu" type="PanelContainer" parent="." node_paths=PackedStringArray("PlayerNameLabel", "PlayerSprite", "HealthLabel", "HealthSlider", "StaminaLabel", "StaminaSlider", "ManaLabel", "ManaSlider", "CharacterLevelLabel", "CharacterExpLabel", "CharacterSlider", "StrengthLabel", "StrengthExpLabel", "StrengthSlider", "DexterityLabel", "DexterityExpLabel", "DexteritySlider", "VitalityLabel", "VitalityExpLabel", "VitalitySlider", "IntelligenceLabel", "IntelligenceExpLabel", "IntelligenceSlider", "LuckLabel", "LuckExpLabel", "LuckSlider", "MeleeDamageMultLabel", "RangedDamageMultLabel", "MagicDamageMultLabel", "LuckMultLabel", "DodgeChanceLabel")]
+custom_minimum_size = Vector2(600, 500)
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 514.0
+offset_bottom = 378.0
+script = ExtResource("5_xa6db")
+PlayerNameLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayerName")
+PlayerSprite = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayerSprite")
+HealthLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HealthBox/HealthLabel")
+HealthSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HealthBox/HealthSlider")
+StaminaLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/StaminaBox/StaminaLabel")
+StaminaSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/StaminaBox/StaminaSlider")
+ManaLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ManaBox/ManaLabel")
+ManaSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ManaBox/ManaSlider")
+CharacterLevelLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues/CurrentLevelCharacter")
+CharacterExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues/CharacterExperienceLabel")
+CharacterSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues/CharacterLevelSlider")
+StrengthLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues/CurrentStrength")
+StrengthExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues/StrengthExpLabel")
+StrengthSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues/StrengthSlider")
+DexterityLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues/CurrentDexterity")
+DexterityExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues/DexterityExpLabel")
+DexteritySlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues/DexteritySlider")
+VitalityLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues/CurrentVitality")
+VitalityExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues/VitalityExpLabel")
+VitalitySlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues/VitalitySlider")
+IntelligenceLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues/CurrentIntelligence")
+IntelligenceExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues/IntelligenceExpLabel")
+IntelligenceSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues/IntelligenceSlider")
+LuckLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues/CurrentLuck")
+LuckExpLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues/LuckExpLabel")
+LuckSlider = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues/LuckSlider")
+MeleeDamageMultLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer/MeleeDamageMultValue")
+RangedDamageMultLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer/RangedDamageMultValue")
+MagicDamageMultLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer/MagicDamageMultValue")
+LuckMultLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer/LuckMultValue")
+DodgeChanceLabel = NodePath("VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer/DodgeChanceValue")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterMenu"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="CharacterMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tvxe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CharacterMenu/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 10.0
+theme_override_font_sizes/font_size = 32
+text = "Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CharacterMenu/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="PanelContainer" type="PanelContainer" parent="CharacterMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerName" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="PlayerSprite" type="TextureRect" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+texture = SubResource("AtlasTexture_vnva7")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health"
+
+[node name="HealthBox" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealthSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HealthBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_gxl0d")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="HealthLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HealthBox"]
+layout_mode = 2
+text = "100/100"
+
+[node name="Label3" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stamina"
+
+[node name="StaminaBox" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StaminaSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/StaminaBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_wv6vg")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="StaminaLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/StaminaBox"]
+layout_mode = 2
+text = "100/100"
+
+[node name="Label4" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mana"
+
+[node name="ManaBox" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ManaSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ManaBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_bex61")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="ManaLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ManaBox"]
+layout_mode = 2
+text = "100/100"
+
+[node name="VSeparator" type="VSeparator" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_dj1mg")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterLevelBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level"
+
+[node name="CharacterLevelValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox"]
+layout_mode = 2
+
+[node name="CurrentLevelCharacter" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="CharacterLevelSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="CharacterExperienceLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLevelBox/CharacterLevelValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="CharacterStrengthBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Strength" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Strength"
+
+[node name="CharacterStrengthValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox"]
+layout_mode = 2
+
+[node name="CurrentStrength" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="StrengthSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="StrengthExpLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterStrengthBox/CharacterStrengthValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="CharacterDexterityBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Dexterity" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Dexterity"
+
+[node name="CharacterDexeterityValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox"]
+layout_mode = 2
+
+[node name="CurrentDexterity" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="DexteritySlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="DexterityExpLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterDexterityBox/CharacterDexeterityValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="CharacterVitalityBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Vitality" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Vitality"
+
+[node name="CharacterVitalityValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox"]
+layout_mode = 2
+
+[node name="CurrentVitality" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="VitalitySlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="VitalityExpLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterVitalityBox/CharacterVitalityValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="CharacterIntelligenceBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Intelligence" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Intelligence"
+
+[node name="CharacterIntelligenceValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox"]
+layout_mode = 2
+
+[node name="CurrentIntelligence" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="IntelligenceSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="IntelligenceExpLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterIntelligenceBox/CharacterIntelligenceValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="CharacterLuckBox" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Luck" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Luck"
+
+[node name="CharacterLuckValues" type="HBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox"]
+layout_mode = 2
+
+[node name="CurrentLuck" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues"]
+layout_mode = 2
+text = "Level"
+
+[node name="LuckSlider" type="HSlider" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("AtlasTexture_q01fs")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_i1783")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_bhtsl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tpdb1")
+value = 100.0
+rounded = true
+editable = false
+scrollable = false
+
+[node name="LuckExpLabel" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/CharacterLuckBox/CharacterLuckValues"]
+layout_mode = 2
+text = "100/100"
+
+[node name="HSeparator" type="HSeparator" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_g1ser")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Modifiers"
+
+[node name="GridContainer" type="GridContainer" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Melee Damage Mult:"
+
+[node name="MeleeDamageMultValue" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "10"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Ranged Damage Mult:"
+
+[node name="RangedDamageMultValue" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "10"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Magic Damage Mult:"
+
+[node name="MagicDamageMultValue" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "10"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Luck Mult:"
+
+[node name="LuckMultValue" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "10"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Dodge Chance:"
+
+[node name="DodgeChanceValue" type="Label" parent="CharacterMenu/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer2/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "10"
+horizontal_alignment = 1
+
+[node name="AbilitiesMenu" type="PanelContainer" parent="." node_paths=PackedStringArray("StrengthButton", "DexterityButton", "VitalityButton", "IntelligenceButton", "LuckButton", "AbilityList", "AbilityDetailsIcon", "AbilityDetailsName", "AbilityDetailsDescription", "AbilityDetailsStatus", "AbilityDetailsActionEffect", "AbilityDetailsActionsEffectsDetails", "AbilityPrerequisites")]
+visible = false
+custom_minimum_size = Vector2(800, 800)
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 514.0
+offset_bottom = 378.0
+script = ExtResource("7_l2w35")
+StrengthButton = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/StrengthTab")
+DexterityButton = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/DexTab")
+VitalityButton = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/VitalityTab")
+IntelligenceButton = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/IntTab")
+LuckButton = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/LuckTab")
+AbilityList = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/ScrollContainer/AbilityList")
+AbilityDetailsIcon = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/HBoxContainer/SelectedAbilityIcon")
+AbilityDetailsName = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/HBoxContainer/SelectedAbilityName")
+AbilityDetailsDescription = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/SelectedAbilityDescription")
+AbilityDetailsStatus = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/SelectedAbilityType")
+AbilityDetailsActionEffect = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/SelectedActionsEffects")
+AbilityDetailsActionsEffectsDetails = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Actions/SelectedActionEffectDetails")
+AbilityPrerequisites = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/Prerequisites")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AbilitiesMenu"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="AbilitiesMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tvxe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="AbilitiesMenu/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 10.0
+theme_override_font_sizes/font_size = 32
+text = "Abilities"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="AbilitiesMenu/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="PanelContainer" type="PanelContainer" parent="AbilitiesMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="SideBar2" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AbilityTabs" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="StrengthTab" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4qwv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8htx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hi2di")
+theme_override_styles/focus = SubResource("StyleBoxTexture_uxhag")
+
+[node name="TextureRect" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/StrengthTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ekv7b")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="DexTab" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4qwv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8htx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hi2di")
+theme_override_styles/focus = SubResource("StyleBoxTexture_uxhag")
+
+[node name="TextureRect" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/DexTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5wlmm")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VitalityTab" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4qwv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8htx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hi2di")
+theme_override_styles/focus = SubResource("StyleBoxTexture_uxhag")
+
+[node name="TextureRect" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/VitalityTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_fb818")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="IntTab" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4qwv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8htx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hi2di")
+theme_override_styles/focus = SubResource("StyleBoxTexture_uxhag")
+
+[node name="TextureRect" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/IntTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_jc264")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="LuckTab" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i4qwv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k8htx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hi2di")
+theme_override_styles/focus = SubResource("StyleBoxTexture_uxhag")
+
+[node name="TextureRect" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/AbilityTabs/LuckTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_dxgm8")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_28602")
+
+[node name="Content" type="Control" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="StrengthAbilities" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="AbilityList" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AbilityDetails" type="PanelContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedAbilityIcon" type="TextureRect" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_jamyt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SelectedAbilityName" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Inner Strength"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Ability Type:"
+
+[node name="SelectedAbilityType" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Active"
+
+[node name="Label" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Prerequisites:"
+
+[node name="Prerequisites" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Level: 10
+Dexterity: 50"
+
+[node name="MarginContainer" type="MarginContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedAbilityDescription" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap_mode = 2
+
+[node name="SelectedActionsEffects" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Actions:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Actions" type="VBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedActionEffectDetails" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/SideBar2/Content/StrengthAbilities/AbilityDetails/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Actions"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rgbr7")
+
+[node name="MarginContainer2" type="MarginContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Avaiable Points:"
+
+[node name="Label2" type="Label" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="AbilitiesMenu/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
+[connection signal="mouse_entered" from="Inventory/VBoxContainer/Panel" to="Inventory" method="OnMouseEnter"]
+[connection signal="mouse_exited" from="Inventory/VBoxContainer/Panel" to="Inventory" method="OnMouseExit"]
+[connection signal="pressed" from="Inventory/VBoxContainer/Panel/HBoxContainer/Button" to="." method="ToggleInventory"]
+[connection signal="mouse_entered" from="CharacterMenu/VBoxContainer/Panel" to="CharacterMenu" method="OnMouseEnter"]
+[connection signal="mouse_exited" from="CharacterMenu/VBoxContainer/Panel" to="CharacterMenu" method="OnMouseExit"]
+[connection signal="pressed" from="CharacterMenu/VBoxContainer/Panel/HBoxContainer/Button" to="." method="ToggleCharacterMenu"]
+[connection signal="mouse_entered" from="AbilitiesMenu/VBoxContainer/Panel" to="AbilitiesMenu" method="OnMouseEnter"]
+[connection signal="mouse_exited" from="AbilitiesMenu/VBoxContainer/Panel" to="AbilitiesMenu" method="OnMouseExit"]
+[connection signal="pressed" from="AbilitiesMenu/VBoxContainer/Panel/HBoxContainer/Button" to="." method="ToggleAbilitiesMenu"]
