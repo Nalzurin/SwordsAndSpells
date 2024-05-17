@@ -38,10 +38,38 @@ public partial class CombatActionTemplate : MarginContainer
 		if(action.TargetType == "Self")
 		{
             combatMenu.UseAction(combatMenu.Player, "Player", action);
+            foreach (IEffect effect in action.Effects)
+            {
+                if (effect.Duration == 0)
+                {
+                    combatMenu.Player.Statistics.UpdateHealthHealed(effect.Value);
+
+                }
+                else
+                {
+                    combatMenu.Player.Statistics.UpdateHealthHealed(effect.Value * effect.Duration);
+                }
+
+
+            }
         }
 		else
 		{
             combatMenu.UseAction(combatMenu.Player, "Enemy", action);
+            foreach (IEffect effect in action.Effects)
+            {
+                if (effect.Duration == 0)
+                {
+                    combatMenu.Player.Statistics.UpdateDamageDealt(-effect.Value);
+
+                }
+                else
+                {
+                    combatMenu.Player.Statistics.UpdateDamageDealt(-effect.Value * effect.Duration);
+                }
+
+
+            }
         }
 		
 	}

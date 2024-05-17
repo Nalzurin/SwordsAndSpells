@@ -49,5 +49,9 @@ public class ChangeLuckEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
-
+    // DeepCopy method
+    public IEffect DeepCopy()
+    {
+        return new ChangeLuckEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

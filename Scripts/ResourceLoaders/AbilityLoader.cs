@@ -6,7 +6,9 @@ using System.Xml;
 
 public partial class AbilityLoader : Node
 {
-    private const string AbilitiesFolder = "Assets/Abilities/";
+    const bool Export = true;
+    private const string AbilitiesFolder = "res://Assets/Abilities/";
+    private const string UserAbilitiesFolder = "user://Assets/Abilities/";
     private AssetManager _assets;
 
     // Called when the node enters the scene tree for the first time.
@@ -20,10 +22,22 @@ public partial class AbilityLoader : Node
     // Method to load abilities from XML files in the specified folder
     private void LoadAbilities()
     {
-        string[] files = Directory.GetFiles(AbilitiesFolder, "*.xml");
+        string[] files;
+        if (Export)
+        {
+            files = DirAccess.GetFilesAt(UserAbilitiesFolder);
+        }
+        else
+        {
+            files = DirAccess.GetFilesAt(AbilitiesFolder);
+        }
         foreach (string file in files)
         {
-            LoadAbility(file);
+            if (file.EndsWith(".xml"))
+            {
+                LoadAbility(file);
+            }
+           
         }
     }
 
@@ -33,7 +47,15 @@ public partial class AbilityLoader : Node
         try
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
+            if (Export)
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(UserAbilitiesFolder + filePath));
+            }
+            else
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(AbilitiesFolder + filePath));
+            }
+           
 
             XmlNodeList abilityNodes = xmlDoc.GetElementsByTagName("Ability");
             foreach (XmlNode node in abilityNodes)
@@ -73,7 +95,7 @@ public partial class AbilityLoader : Node
 
         XmlNode spritePathNode = abilityNode.SelectSingleNode("SpritePath");
         if (spritePathNode != null)
-            ability.SpritePath = "Assets/Sprites/" +spritePathNode.InnerText;
+            ability.SpritePath = spritePathNode.InnerText;
 
         XmlNode attributeNode = abilityNode.SelectSingleNode("Attribute");
         if (attributeNode != null)

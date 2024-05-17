@@ -73,6 +73,7 @@ public partial class CombatMenu : CanvasLayer
     }
     public void UpdateEnemyHealth()
     {
+        GD.Print($"{Enemy.Characteristics.HealthMax}/{Enemy.Characteristics.HealthCurrent}");
         EnemyHealh.MaxValue = Enemy.Characteristics.HealthMax;
         EnemyHealh.Value = Enemy.Characteristics.HealthCurrent;
     }
@@ -88,6 +89,19 @@ public partial class CombatMenu : CanvasLayer
         PlayerStaminaValue.Text = $"{Player.Characteristics.StaminaCurrent}/{Player.Characteristics.StaminaMax}";
         PlayerManaValue.Text = $"{Player.Characteristics.ManaCurrent}/{Player.Characteristics.ManaMax}";
 
+    }
+    public void EnemyTurn()
+    {
+        Random rand = new Random();
+        BaseAction action = Enemy.Actions.actions[rand.Next(Enemy.Actions.actions.Count)];
+        if (action.TargetType == "Enemy")
+        {
+            UseAction(Enemy, "Player", action);
+        }
+        else
+        {
+            UseAction(Enemy, "Enemy", action);
+        }
     }
     public void UseAction(BaseEntity caller, string target, BaseAction action)
     {
@@ -144,14 +158,17 @@ public partial class CombatMenu : CanvasLayer
     {
         for (int i = 9; i < 39; i++)
         {
-            ItemConsumable consumable = (ItemConsumable)Player.Inventory.items[i];
-            if (consumable != null && consumable.Actions.Count > 0)
+            if (Player.Inventory.items[i] is ItemConsumable consumable)
             {
-                CombatItemTemplate instance = (CombatItemTemplate)itemTemplate.Instantiate();
-                instance.item = consumable;
-                instance.combatMenu = this;
-                ActionsMenuGrid.AddChild(instance);
+                if (consumable != null && consumable.Actions.Count > 0)
+                {
+                    CombatItemTemplate instance = (CombatItemTemplate)itemTemplate.Instantiate();
+                    instance.item = consumable;
+                    instance.combatMenu = this;
+                    ActionsMenuGrid.AddChild(instance);
+                }
             }
+
         }
     }
     public void PopulateActionMenuAbility()
@@ -201,6 +218,7 @@ public partial class CombatMenu : CanvasLayer
                 return;
             }
             CurrentTurn = "Enemy";
+            EnemyTurn();
             gameManager.CurrentEnemy.EnemyData.Effects.UpdateEffects();
         }
         else
@@ -219,8 +237,20 @@ public partial class CombatMenu : CanvasLayer
         if (status == "Victory")
         {
             GD.Print("Victory!");
+            Enemy.Characteristics.HealthChanged -= UpdateEnemyHealth;
+            Player.Characteristics.HealthChanged -= UpdatePlayerStatus;
+            Player.Characteristics.ManaChanged -= UpdatePlayerStatus;
+            Player.Characteristics.StaminaChanged -= UpdatePlayerStatus;
+            ActionsMenuBackButton.Pressed -= HideActionsMenu;
+            GearMenuButton.Pressed -= GearMenuButtonPress;
+            AbilityMenuButton.Pressed -= AbilityMenuButtonPress;
+            ItemMenuButton.Pressed -= ItemMenuButtonPress;
+            gameManager.CurrentEnemy.EnemyData.Characteristics.HealthCurrent = gameManager.CurrentEnemy.EnemyData.Characteristics.HealthMax;
+            gameManager.CurrentEnemy.EnemyData.Characteristics.StaminaCurrent = gameManager.CurrentEnemy.EnemyData.Characteristics.StaminaMax;
+            gameManager.CurrentEnemy.EnemyData.Characteristics.ManaCurrent = gameManager.CurrentEnemy.EnemyData.Characteristics.ManaMax;
             gameManager.CurrentEnemy.DeleteSelf();
             gameManager.CurrentEnemy = null;
+            Player.Statistics.UpdateEnemiesDefeated(1);
             gameManager.EndCombat();
             this.QueueFree();
         }

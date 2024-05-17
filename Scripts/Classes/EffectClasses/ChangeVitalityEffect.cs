@@ -49,5 +49,8 @@ public class ChangeVitalityEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
-
+    public IEffect DeepCopy()
+    {
+        return new ChangeVitalityEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

@@ -6,7 +6,10 @@ using System.Xml;
 
 public partial class EnemyEntityLoader : Node
 {
-    private const string EnemiesFolder = "Assets/Enemies/";
+    const bool Export = true;
+    private const string EnemiesFolder = "res://Assets/Enemies/";
+    private const string UserEnemiesFolder = "user://Assets/Enemies/";
+
     private AssetManager _assets;
 
     // Called when the node enters the scene tree for the first time.
@@ -20,11 +23,22 @@ public partial class EnemyEntityLoader : Node
     // Method to load enemies from XML files in the specified folder
     private void LoadEnemies()
     {
-        // Get all XML files from the specified folder
-        string[] files = Directory.GetFiles(EnemiesFolder, "*.xml");
+        string[] files;
+        if (Export)
+        {
+            files = DirAccess.GetFilesAt(UserEnemiesFolder);
+        }
+        else
+        {
+            files = DirAccess.GetFilesAt(EnemiesFolder);
+        }
         foreach (string file in files)
         {
-            LoadEnemy(file);
+            if (file.EndsWith(".xml"))
+            {
+                LoadEnemy(file);
+            }
+            
         }
     }
 
@@ -34,7 +48,15 @@ public partial class EnemyEntityLoader : Node
         try
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
+            if (Export)
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(UserEnemiesFolder + filePath));
+            }
+            else
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(EnemiesFolder + filePath));
+            }
+            
 
             XmlNodeList enemyNodes = xmlDoc.GetElementsByTagName("EntityEnemy");
             foreach (XmlNode node in enemyNodes)
@@ -113,7 +135,7 @@ public partial class EnemyEntityLoader : Node
             GD.PrintErr($"Error loading abilities");
             GD.PrintErr(e.Message);
         }
-        EnemyEntity entity = new EnemyEntity(id, name, description, "Assets/Sprites/" + spritePath, targetType, rarity, Biomes, effects, abilities, actions, characteristics);
+        EnemyEntity entity = new EnemyEntity(id, name, description, spritePath, targetType, rarity, Biomes, effects, abilities, actions, characteristics);
         entity.Characteristics.SetParent(entity);
         entity.Effects.SetParent(entity);
         entity.Actions.SetParent(entity);

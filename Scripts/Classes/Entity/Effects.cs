@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 
 public class Effects
@@ -71,7 +72,6 @@ public class Effects
     {
         activeEffects = _activeEffects;
         parent = _parent;
-
-
     }
+
 }

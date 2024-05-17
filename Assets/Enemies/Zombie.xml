@@ -6,7 +6,7 @@
   <!--String-->
   <Description>A corpse of a person, animated by dark magic</Description>
   <!--String-->
-  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>  
+  <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>  
   <Rarity>Common</Rarity>
   <Biomes>
     <Biome>Biome_Desert</Biome>
@@ -29,7 +29,7 @@
       <ID>ZombieSlamAttack</ID>
       <Name>Slam</Name>
       <Description>Slamming attack</Description>
-      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
       <TargetType>Enemy</TargetType>
       <Cost>
         <Stamina>25</Stamina>
@@ -41,7 +41,7 @@
           <EffectTypeClass>ChangeHealthEffect</EffectTypeClass>
           <Description>The zombie hits you with its rotting arms, damaging you</Description>
           <Duration>0</Duration>
-          <Value>-25</Value>
+          <Value>-5</Value>
           <EffectType>Physical</EffectType>
           <IsHarmful>True</IsHarmful>
         </Effect>
@@ -53,7 +53,7 @@
   </Abilities>
   <Characteristics>
     <Level>1</Level>
-    <Health>50</Health>
+    <Health>30</Health>
     <Stamina>100</Stamina>
     <Mana>0</Mana>
     <Strength>20</Strength>

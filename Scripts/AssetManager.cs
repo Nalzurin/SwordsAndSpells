@@ -16,7 +16,7 @@ public partial class AssetManager : Node
     public void SetWorldTileSet(TileSet worldTileSet)
     {
         WorldTileSet = worldTileSet;
-        ResourceSaver.Save(WorldTileSet, "Assets/Sprites/Tilesets/WorldTileSet.tres");
+        //ResourceSaver.Save(WorldTileSet, "user://Assets/Sprites/Tilesets/WorldTileSet.tres");
     }
     public TileSet GetWorldTileSet()
     {

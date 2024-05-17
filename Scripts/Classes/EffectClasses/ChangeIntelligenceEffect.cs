@@ -49,4 +49,9 @@ public class ChangeIntelligenceEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
+    // DeepCopy method
+    public IEffect DeepCopy()
+    {
+        return new ChangeIntelligenceEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

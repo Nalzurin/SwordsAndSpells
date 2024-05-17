@@ -7,6 +7,8 @@ public partial class GameManager : Node
 {
     [Signal]
     public delegate void UpdateEntitiesEventHandler(Vector2I playerPos);
+    [Signal]
+    public delegate void StateChangedEventHandler(string newState);
 
     public string CurrentState;
     public string[,] currentWorldBiomeMap;
@@ -21,12 +23,18 @@ public partial class GameManager : Node
     public Vector2I newEnemyPos;
     List<EnemyEntity> possibleEntities = new List<EnemyEntity>();
     PackedScene combatScene = GD.Load<PackedScene>("Scenes/CombatGUI.tscn");
+    PackedScene travelScene = GD.Load<PackedScene>("Scenes/TravelGUI.tscn");
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         SaveSystem = (SaveSystem)GetNode("/root/SaveSystem");
         assetManager = (AssetManager)GetNode("/root/AssetManager");
         CurrentState = "MENU";
+    }
+    public void BeginTravel()
+    {
+        var travelInstance = travelScene.Instantiate();
+        GetNode("/root/World").AddChild(travelInstance);
     }
     public void BeginCombat(EnemyController enemy)
     {
@@ -38,7 +46,9 @@ public partial class GameManager : Node
     }
     public void EndCombat()
     {
+        SaveSystem.SaveCharacter(CurrentPlayer);
         SwitchState("TRAVEL");
+        BeginTravel();
     }
     public BaseItem GenerateLoot(int level, string enemyRarity)
     {
@@ -88,7 +98,9 @@ public partial class GameManager : Node
             }
         }
         Random rand = new Random();
-        return entities[rand.Next(entities.Count)];
+        EnemyEntity enemy = entities[rand.Next(entities.Count)];
+        
+        return enemy;
     }
     public void InstantiateEnemy(Vector2I playerPosition, int minDistance, int maxDistance)
     {
@@ -217,6 +229,7 @@ public partial class GameManager : Node
     public void SwitchState(string newState)
     {
         CurrentState = newState;
+        EmitSignal(SignalName.StateChanged, newState);
     }
     public void SetCurrentWorldBiomeMap(string[,] worldBiomeMap)
     {

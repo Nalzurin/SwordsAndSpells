@@ -33,7 +33,7 @@ public class ActionLoader
             EffectLoader loader = new EffectLoader(effectNode, name);
             effects.Add(loader.GenerateEffect());
         }
-        return new BaseAction(id, name, description, "Assets/Sprites/"+spritePath, targetType, cost, effects);
+        return new BaseAction(id, name, description, spritePath, targetType, cost, effects);
 
     }
 }

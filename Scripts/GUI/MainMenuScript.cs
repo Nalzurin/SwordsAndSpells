@@ -170,18 +170,22 @@ public partial class MainMenuScript : CanvasLayer
 	}
     private void FileDialog_FileSelected(string path)
     {
-        string destinationFolder = "User/Sprites/Characters/";
+        string destinationFolder = "user://Saved/Sprites/Characters/";
+        if (!DirAccess.DirExistsAbsolute(ProjectSettings.GlobalizePath(destinationFolder)))
+        {
+            DirAccess.MakeDirRecursiveAbsolute(ProjectSettings.GlobalizePath(destinationFolder));
+        }
         string fileName = System.IO.Path.GetFileName(path);
-        string destinationPath = System.IO.Path.Combine(destinationFolder, fileName);
+		string destinationPath = ProjectSettings.GlobalizePath(destinationFolder + fileName);
         try
         {
             System.IO.File.Copy(path, destinationPath, overwrite: true);
 
-            Image image = Image.LoadFromFile(destinationPath);
+            Image image = Image.LoadFromFile(destinationFolder+fileName);
             ImageTexture imageTexture = ImageTexture.CreateFromImage(image);
 			
 
-            characterSpritePath = destinationPath;
+            characterSpritePath = destinationFolder + fileName;
             characterSprite = imageTexture;
             NewCharacterSprite.Texture = imageTexture;
 
@@ -262,7 +266,7 @@ public partial class MainMenuScript : CanvasLayer
 		WeaponList.Clear();
 		foreach(BaseItem item in assetManager.items.Values)
 		{
-			if(item is ItemGear weapon && weapon.GearSlot == 0)
+			if(item is ItemGear weapon && weapon.GearSlot == 8)
 			{
                 int index = WeaponList.AddItem(weapon.ItemName, GD.Load<Texture2D>(weapon.SpritePath));
                 weaponsId.Add(index, weapon.ID);
@@ -283,7 +287,7 @@ public partial class MainMenuScript : CanvasLayer
     }
     private void NewCharacterCreateCharacter()
 	{
-		PlayerEntity newPlayer = new PlayerEntity("Player_"+newCharName, newCharName,"Player",characterSpritePath,"Sprites/Items/Consumable/Kiwi.png","Player",new Effects(),new Abilities(), new Actions(), new Characteristics(), new Experience(), new Inventory());
+		PlayerEntity newPlayer = new PlayerEntity("Player_"+newCharName, newCharName,"Player",characterSpritePath,"res://Assets/Sprites/Items/Consumables/Food/Kiwi.png","Player",new Effects(),new Abilities(), new Actions(), new Characteristics(), new Experience(), new Inventory(), new Statistics());
 		foreach(string ability in selectedAbilities)
 		{
 			newPlayer.Abilities.AddAbility(assetManager.GetAbility(ability));
@@ -338,7 +342,7 @@ public partial class MainMenuScript : CanvasLayer
 		characterIds.Clear();
 		foreach(PlayerEntity entity in assetManager.playerCharacters.Values)
 		{
-			characterIds.Add(characterList.AddItem(entity.EntityName, entity.GetSprite(), true),entity.ID);
+			characterIds.Add(characterList.AddItem(entity.EntityName, entity.GetImage(), true),entity.ID);
 		}
     }
 	private void ExitGame()

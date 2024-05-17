@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 public partial class TravelUIScript : CanvasLayer
 {
@@ -28,14 +29,18 @@ public partial class TravelUIScript : CanvasLayer
 		assetManager = (AssetManager)GetNode("/root/AssetManager");
 		gameManager = (GameManager)GetNode("/root/GameManager");
 		player = gameManager.CurrentPlayer;
-        InventoryButton.Pressed += ToggleInventory;
-		CharacterButton.Pressed += ToggleCharacterMenu;
-		AbilitiesButton.Pressed += ToggleAbilitiesMenu;
+		gameManager.StateChanged += StateChanged;
 	}
-	public void ToggleTravelUI()
+	public void StateChanged(string newState)
 	{
-		this.Visible = !this.Visible;
+
+		if(newState == "COMBAT")
+		{
+            gameManager.StateChanged -= StateChanged;
+            this.QueueFree();
+		}
 	}
+
 	public void ToggleAbilitiesMenu()
 	{
 		AbilitiesContainer.Visible = !AbilitiesContainer.Visible;
@@ -49,6 +54,10 @@ public partial class TravelUIScript : CanvasLayer
 		Inventory.Visible = !Inventory.Visible;
         
     }
+	public void ToggleUI()
+	{
+		this.Visible = !this.Visible;
+	}
     public override void _UnhandledInput(InputEvent @event)
     {
 		if(gameManager.CurrentState == "TRAVEL")
@@ -59,7 +68,7 @@ public partial class TravelUIScript : CanvasLayer
             }
             if (@event.IsActionPressed("ui_charactermenu"))
             {
-                ToggleInventory();
+                ToggleCharacterMenu();
             }
             if (@event.IsActionPressed("ui_abilitiesmenu"))
             {

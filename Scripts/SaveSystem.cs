@@ -7,37 +7,48 @@ using System.Xml;
 public partial class SaveSystem : Node
 {
 
-    readonly string charactersFilePath = "Saved/Characters/";
-    readonly string worldsFilePath = "Saved/Worlds/";
+    readonly string charactersFilePath = "user://Saved/Characters/";
+    readonly string worldsFilePath = "user://Saved/Worlds/";
     AssetManager assetManager;
+    MongoDBManager dbManager;
+    public int Health, Stamina, Mana;
     public override void _Ready()
     {
         assetManager = (AssetManager)GetNode("/root/AssetManager");
+        dbManager = (MongoDBManager)GetNode("/root/MongoDbManager");
     }
     public void LoadCharacters()
     {
-        foreach (string filePath in Directory.GetFiles(charactersFilePath, "*.xml"))
+        if (!DirAccess.DirExistsAbsolute(ProjectSettings.GlobalizePath(charactersFilePath)))
         {
-            // Load the XML file
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            // Parse the XML file and create a PlayerEntity
-            PlayerEntity playerEntity = ParsePlayerEntity(xmlDoc);
-
-            // Add the PlayerEntity to the list
-            if (playerEntity != null)
+            DirAccess.MakeDirRecursiveAbsolute(ProjectSettings.GlobalizePath(charactersFilePath));
+        }
+        foreach (string filePath in DirAccess.GetFilesAt(charactersFilePath))
+        {
+            if (filePath.EndsWith(".xml"))
             {
-                if(assetManager.GetCharacter(playerEntity.ID) != null)
+                // Load the XML file
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(ProjectSettings.GlobalizePath(charactersFilePath+filePath));
+
+                // Parse the XML file and create a PlayerEntity
+                PlayerEntity playerEntity = ParsePlayerEntity(xmlDoc);
+
+                // Add the PlayerEntity to the list
+                if (playerEntity != null)
                 {
-                    assetManager.UpdateCharacter(playerEntity.ID, playerEntity);
+                    if (assetManager.GetCharacter(playerEntity.ID) != null)
+                    {
+                        assetManager.UpdateCharacter(playerEntity.ID, playerEntity);
+                    }
+                    else
+                    {
+                        assetManager.AddCharacter(playerEntity);
+                    }
+
                 }
-                else
-                {
-                    assetManager.AddCharacter(playerEntity);
-                }
-               
             }
+
         }
         assetManager.DebugListPlayerCharacters();
     }
@@ -74,8 +85,19 @@ public partial class SaveSystem : Node
         // Load Experience
         Experience experience = LoadExperience(root.SelectSingleNode("Experience"));
         Inventory inventory = LoadInventory(root.SelectSingleNode("Inventory"));
+        Statistics statistics;
+        var stats = dbManager.LoadStatistics(id);
+        if (stats != null)
+        {
+            statistics = new Statistics(id, stats["StepsWalked"].AsInt32, stats["DamageDealt"].AsInt32, stats["DamageTaken"].AsInt32, stats["HealthHealed"].AsInt32, stats["EnemiesDefeated"].AsInt32);
+        }
+        else
+        {
+            statistics = new Statistics();
+        }
+
         // Create and return a PlayerEntity instance
-        PlayerEntity playerEntity = new PlayerEntity(id, name, description, imagePath, spritePath, targetType, effects, abilities, actions, characteristics, experience, inventory);
+        PlayerEntity playerEntity = new PlayerEntity(id, name, description, imagePath, spritePath, targetType, effects, abilities, actions, characteristics, experience, inventory, statistics);
         playerEntity.Effects.SetParent(playerEntity);
         playerEntity.Actions.SetParent(playerEntity);
         playerEntity.Abilities.SetParent(playerEntity);
@@ -86,17 +108,20 @@ public partial class SaveSystem : Node
         playerEntity.Inventory.ApplyEffects();
         playerEntity.Experience.LevelUpAll();
         playerEntity.Abilities.ApplyAbilities();
+        playerEntity.Characteristics.HealthCurrent = Health;
+        playerEntity.Characteristics.ManaCurrent = Mana;
+        playerEntity.Characteristics.StaminaCurrent = Stamina;
         return playerEntity;
     }
     private Inventory LoadInventory(XmlNode inventoryNode)
     {
         BaseItem[] inventory = new BaseItem[39];
-        if(inventoryNode != null)
+        if (inventoryNode != null)
         {
-            foreach(XmlNode node in inventoryNode.ChildNodes)
+            foreach (XmlNode node in inventoryNode.ChildNodes)
             {
                 BaseItem item = assetManager.GetItem(node.SelectSingleNode("ID").InnerText);
-                if(item != null)
+                if (item != null)
                 {
                     inventory[int.Parse(node.SelectSingleNode("Index").InnerText)] = item;
                 }
@@ -181,9 +206,13 @@ public partial class SaveSystem : Node
         int health = int.Parse(characteristicsNode.SelectSingleNode("HealthCurrent")?.InnerText ?? "0");
         int stamina = int.Parse(characteristicsNode.SelectSingleNode("StaminaCurrent")?.InnerText ?? "0");
         int mana = int.Parse(characteristicsNode.SelectSingleNode("ManaCurrent")?.InnerText ?? "0");
+        Health = health;
+        Stamina = stamina;
+        Mana = mana;
 
+        Characteristics charact = new Characteristics(1, 50, health, 50, stamina, 50, mana, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, null);
         // Return a Characteristics instance
-        return new Characteristics(1, 50, health, 50, stamina, 50, mana, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, null);
+        return charact;
     }
 
     // Helper method to load Experience
@@ -209,11 +238,8 @@ public partial class SaveSystem : Node
             NewLineOnAttributes = false
         };
 
-        // Define the file path where the character will be saved
-        string filePath = Path.Combine(charactersFilePath, $"{player.EntityName}.xml");
-
         // Create an XmlWriter instance and start writing to the specified file path
-        using (XmlWriter writer = XmlWriter.Create(filePath, settings))
+        using (XmlWriter writer = XmlWriter.Create(ProjectSettings.GlobalizePath(charactersFilePath+ $"{player.EntityName}.xml"), settings))
         {
             // Start the XML document
             writer.WriteStartDocument();
@@ -246,6 +272,7 @@ public partial class SaveSystem : Node
 
             // End the XML document
             writer.WriteEndDocument();
+            dbManager.SaveStatistics(player.ID, player.Statistics.StepsWalked, player.Statistics.DamageDealt, player.Statistics.DamageTaken, player.Statistics.HealthHealed, player.Statistics.EnemiesDefeated);
         }
         LoadCharacters();
     }
@@ -339,10 +366,10 @@ public partial class SaveSystem : Node
     public void DeleteCharacter(PlayerEntity player)
     {
         // Define the file path for the character files
-        string characterFilePath = "Saved/Characters/";
+        string characterFilePath = "user://Saved/Characters/";
 
         // Check if the directory exists
-        if (!Directory.Exists(characterFilePath))
+        if (!DirAccess.DirExistsAbsolute(characterFilePath))
         {
             GD.PrintErr("The characters directory does not exist.");
             return;
@@ -350,35 +377,40 @@ public partial class SaveSystem : Node
 
         // Find the corresponding XML file
         string xmlFileToDelete = null;
-        foreach (string filePath in Directory.GetFiles(characterFilePath, "*.xml"))
+        foreach (string filePath in DirAccess.GetFilesAt(characterFilePath))
         {
-            // Load the XML file
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            // Get the root element
-            XmlElement root = xmlDoc.DocumentElement;
-
-            if (root != null && root.Name == "EntityPlayer")
+            if (filePath.EndsWith(".xml"))
             {
-                // Check the ID and Name elements
-                string id = root.SelectSingleNode("ID")?.InnerText;
-                string name = root.SelectSingleNode("Name")?.InnerText;
+                // Load the XML file
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(ProjectSettings.GlobalizePath(characterFilePath+filePath));
 
-                // If either the ID or Name matches the characterIdOrName, mark this file for deletion
-                if (id == player.ID || name == player.EntityName)
+                // Get the root element
+                XmlElement root = xmlDoc.DocumentElement;
+
+                if (root != null && root.Name == "EntityPlayer")
                 {
-                    xmlFileToDelete = filePath;
-                    break; // We found the matching file; break the loop
+                    // Check the ID and Name elements
+                    string id = root.SelectSingleNode("ID")?.InnerText;
+                    string name = root.SelectSingleNode("Name")?.InnerText;
+
+                    // If either the ID or Name matches the characterIdOrName, mark this file for deletion
+                    if (id == player.ID || name == player.EntityName)
+                    {
+                        xmlFileToDelete = characterFilePath+filePath;
+                        break; // We found the matching file; break the loop
+                    }
                 }
             }
+
         }
 
         // If an XML file was found
         if (xmlFileToDelete != null)
         {
             // Delete the XML file
-            File.Delete(xmlFileToDelete);
+
+            File.Delete(ProjectSettings.GlobalizePath(xmlFileToDelete));
             GD.Print($"Deleted character file: {xmlFileToDelete}");
 
             // Remove the PlayerEntity instance from the AssetManager
@@ -391,69 +423,76 @@ public partial class SaveSystem : Node
     }
     public void LoadWorlds()
     {
-        string directoryPath = "User/Worlds/";
-        string[] filePaths = Directory.GetFiles(directoryPath, "*.xml");
+        if(!DirAccess.DirExistsAbsolute(ProjectSettings.GlobalizePath(worldsFilePath)))
+        {
+            DirAccess.MakeDirRecursiveAbsolute(ProjectSettings.GlobalizePath(worldsFilePath));
+        }
+        string[] filePaths = DirAccess.GetFilesAt(worldsFilePath);
 
         foreach (string filePath in filePaths)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            XmlNode worldNode = xmlDoc.SelectSingleNode("World");
-            if (worldNode != null)
+            if (filePath.EndsWith(".xml"))
             {
-                WorldFile worldData = new WorldFile();
-                XmlNode idNode = worldNode.SelectSingleNode("ID");
-                if (idNode != null)
-                {
-                    worldData.ID = idNode.InnerText;
-                }
-                XmlNode nameNode = worldNode.SelectSingleNode("Name");
-                if (nameNode != null)
-                {
-                    worldData.Name = nameNode.InnerText;
-                }
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(ProjectSettings.GlobalizePath(worldsFilePath+filePath));
 
-                XmlNode worldGenSettingsNode = worldNode.SelectSingleNode("WorldGenSettings");
-                if (worldGenSettingsNode != null)
+                XmlNode worldNode = xmlDoc.SelectSingleNode("World");
+                if (worldNode != null)
                 {
-                    worldData.Settings = new WorldGenSettings();
-                    worldData.Settings.Size = int.Parse(worldGenSettingsNode.SelectSingleNode("Size").InnerText);
-                    worldData.Settings.Seed = int.Parse(worldGenSettingsNode.SelectSingleNode("Seed").InnerText);
-                    worldData.Settings.Lacunarity = float.Parse(worldGenSettingsNode.SelectSingleNode("Lacunarity").InnerText);
-                    worldData.Settings.MinBiomeSize = int.Parse(worldGenSettingsNode.SelectSingleNode("MinimumBiomeSize").InnerText);
-                    worldData.Settings.Octaves = int.Parse(worldGenSettingsNode.SelectSingleNode("Octaves").InnerText);
-                    worldData.Settings.Frequency = float.Parse(worldGenSettingsNode.SelectSingleNode("Frequency").InnerText);
-                }
-                Dictionary<Vector2I, BaseEntity> savedEntities = new Dictionary<Vector2I, BaseEntity>();
-                XmlNodeList enemyPositionNodes = worldNode.SelectNodes("EnemiesPositions/EnemyPosition");
-                if (enemyPositionNodes != null)
-                {
-                    foreach (XmlNode enemyPositionNode in enemyPositionNodes)
+                    WorldFile worldData = new WorldFile();
+                    XmlNode idNode = worldNode.SelectSingleNode("ID");
+                    if (idNode != null)
                     {
+                        worldData.ID = idNode.InnerText;
+                    }
+                    XmlNode nameNode = worldNode.SelectSingleNode("Name");
+                    if (nameNode != null)
+                    {
+                        worldData.Name = nameNode.InnerText;
+                    }
 
-                        int X = int.Parse(enemyPositionNode.SelectSingleNode("X").InnerText);
-                        int Y = int.Parse(enemyPositionNode.SelectSingleNode("Y").InnerText);
-                        string Id = enemyPositionNode.SelectSingleNode("EnemyId").InnerText;
-                        savedEntities.Add(new Vector2I(X, Y), assetManager.GetEnemy(Id));
+                    XmlNode worldGenSettingsNode = worldNode.SelectSingleNode("WorldGenSettings");
+                    if (worldGenSettingsNode != null)
+                    {
+                        worldData.Settings = new WorldGenSettings();
+                        worldData.Settings.Size = int.Parse(worldGenSettingsNode.SelectSingleNode("Size").InnerText);
+                        worldData.Settings.Seed = int.Parse(worldGenSettingsNode.SelectSingleNode("Seed").InnerText);
+                        worldData.Settings.Lacunarity = float.Parse(worldGenSettingsNode.SelectSingleNode("Lacunarity").InnerText);
+                        worldData.Settings.MinBiomeSize = int.Parse(worldGenSettingsNode.SelectSingleNode("MinimumBiomeSize").InnerText);
+                        worldData.Settings.Octaves = int.Parse(worldGenSettingsNode.SelectSingleNode("Octaves").InnerText);
+                        worldData.Settings.Frequency = float.Parse(worldGenSettingsNode.SelectSingleNode("Frequency").InnerText);
+                    }
+                    Dictionary<Vector2I, BaseEntity> savedEntities = new Dictionary<Vector2I, BaseEntity>();
+                    XmlNodeList enemyPositionNodes = worldNode.SelectNodes("EnemiesPositions/EnemyPosition");
+                    if (enemyPositionNodes != null)
+                    {
+                        foreach (XmlNode enemyPositionNode in enemyPositionNodes)
+                        {
+
+                            int X = int.Parse(enemyPositionNode.SelectSingleNode("X").InnerText);
+                            int Y = int.Parse(enemyPositionNode.SelectSingleNode("Y").InnerText);
+                            string Id = enemyPositionNode.SelectSingleNode("EnemyId").InnerText;
+                            savedEntities.Add(new Vector2I(X, Y), assetManager.GetEnemy(Id));
+                        }
+                    }
+                    worldData.SavedEntities = savedEntities;
+
+                    XmlNode spawnNode = worldNode.SelectSingleNode("Spawn");
+                    if (spawnNode != null)
+                    {
+                        worldData.WorldSpawn = new Vector2I(int.Parse(spawnNode.SelectSingleNode("X").InnerText), int.Parse(spawnNode.SelectSingleNode("Y").InnerText));
+                    }
+                    if (assetManager.worlds.ContainsKey(worldData.ID))
+                    {
+                        assetManager.UpdateWorld(worldData.ID, worldData);
+                    }
+                    else
+                    {
+                        assetManager.AddWorld(worldData);
                     }
                 }
-                worldData.SavedEntities = savedEntities;
 
-                XmlNode spawnNode = worldNode.SelectSingleNode("Spawn");
-                if (spawnNode != null)
-                {
-                    worldData.WorldSpawn = new Vector2I(int.Parse(spawnNode.SelectSingleNode("X").InnerText), int.Parse(spawnNode.SelectSingleNode("Y").InnerText));
-                }
-                if(assetManager.worlds.ContainsKey(worldData.ID))
-                {
-                    assetManager.UpdateWorld(worldData.ID, worldData);
-                }
-                else
-                {
-                    assetManager.AddWorld(worldData);
-                }
-                
+
                 assetManager.DebugListWorlds();
             }
         }
@@ -466,10 +505,10 @@ public partial class SaveSystem : Node
             IndentChars = "    ",
             NewLineOnAttributes = false
         };
-        string filePath = Path.Combine("User/Worlds/", $"{world.Name}.xml");
+        string filePath = ProjectSettings.GlobalizePath("user://Saved/Worlds/" + $"{world.Name}.xml");
         using (XmlWriter writer = XmlWriter.Create(filePath, settings))
         {
-            writer.WriteStartDocument();           
+            writer.WriteStartDocument();
             writer.WriteStartElement("World");
             WriteElement(writer, "ID", world.ID);
             WriteElement(writer, "Name", world.Name);
@@ -480,17 +519,17 @@ public partial class SaveSystem : Node
             WriteElement(writer, "MinimumBiomeSize", world.Settings.MinBiomeSize.ToString());
             WriteElement(writer, "Octaves", world.Settings.Octaves.ToString());
             WriteElement(writer, "Frequency", world.Settings.Frequency.ToString());
-            writer.WriteEndElement(); 
+            writer.WriteEndElement();
             writer.WriteStartElement("EnemiesPositions");
             foreach (var position in world.SavedEntities)
             {
                 writer.WriteStartElement("EnemyPosition");
                 WriteElement(writer, "X", position.Key.X.ToString());
                 WriteElement(writer, "Y", position.Key.Y.ToString());
-                WriteElement(writer, "EnemyId", position.Value.ID.ToString()); 
-                writer.WriteEndElement(); 
+                WriteElement(writer, "EnemyId", position.Value.ID.ToString());
+                writer.WriteEndElement();
             }
-            writer.WriteEndElement(); 
+            writer.WriteEndElement();
             writer.WriteStartElement("Spawn");
             WriteElement(writer, "X", world.WorldSpawn.X.ToString());
             WriteElement(writer, "Y", world.WorldSpawn.Y.ToString());
@@ -503,10 +542,10 @@ public partial class SaveSystem : Node
     public void DeleteWorld(WorldFile world)
     {
         // Define the file path for the world files
-        string worldFilePath = "User/Worlds/";
+        string worldFilePath = "user://User/Worlds/";
 
         // Check if the directory exists
-        if (!Directory.Exists(worldFilePath))
+        if (!DirAccess.DirExistsAbsolute(ProjectSettings.GlobalizePath(worldFilePath))) 
         {
             GD.PrintErr("The characters directory does not exist.");
             return;
@@ -514,35 +553,39 @@ public partial class SaveSystem : Node
 
         // Find the corresponding XML file
         string xmlFileToDelete = null;
-        foreach (string filePath in Directory.GetFiles(worldFilePath, "*.xml"))
+        foreach (string filePath in DirAccess.GetFilesAt(worldFilePath))
         {
-            // Load the XML file
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-
-            // Get the root element
-            XmlElement root = xmlDoc.DocumentElement;
-
-            if (root != null && root.Name == "World")
+            if (filePath.EndsWith(".xml"))
             {
-                // Check the ID and Name elements
-                string id = root.SelectSingleNode("ID")?.InnerText;
-                string name = root.SelectSingleNode("Name")?.InnerText;
+                // Load the XML file
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(ProjectSettings.GlobalizePath(worldFilePath+filePath));
 
-                // If either the ID or Name matches the worldIdOrName, mark this file for deletion
-                if (id == world.ID || name == world.Name)
+                // Get the root element
+                XmlElement root = xmlDoc.DocumentElement;
+
+                if (root != null && root.Name == "World")
                 {
-                    xmlFileToDelete = filePath;
-                    break; // We found the matching file; break the loop
+                    // Check the ID and Name elements
+                    string id = root.SelectSingleNode("ID")?.InnerText;
+                    string name = root.SelectSingleNode("Name")?.InnerText;
+
+                    // If either the ID or Name matches the worldIdOrName, mark this file for deletion
+                    if (id == world.ID || name == world.Name)
+                    {
+                        xmlFileToDelete = worldFilePath + filePath;
+                        break; // We found the matching file; break the loop
+                    }
                 }
             }
+
         }
 
         // If an XML file was found
         if (xmlFileToDelete != null)
         {
             // Delete the XML file
-            File.Delete(xmlFileToDelete);
+            File.Delete(ProjectSettings.GlobalizePath(xmlFileToDelete));
             GD.Print($"Deleted world file: {xmlFileToDelete}");
 
             // Remove the WorldFile instance from the AssetManager

@@ -6,17 +6,17 @@
   <Description>A common sword made out of steel, a sturdy weapon that can hold itself well in most combat situations</Description>
   <Rarity>Common</Rarity>
   <ItemLevel>1</ItemLevel>
-  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+  <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
   <GearSlot>8</GearSlot>
   <Actions type="array">
     <Action>
       <ID>SwordAttackAction</ID>
       <Name>Slash</Name>
       <Description>A simple sword slash</Description>
-      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
       <TargetType>Enemy</TargetType>
       <Cost type="array">
-        <Stamina>10</Stamina>
+        <Stamina>5</Stamina>
       </Cost>
       <Effects type ="array">
         <Effect>
@@ -35,10 +35,10 @@
       <ID>SwordAttackAction</ID>
       <Name>Overhead</Name>
       <Description>A strong overhead sword attack</Description>
-      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
       <TargetType>Enemy</TargetType>
       <Cost>
-        <Stamina>25</Stamina>
+        <Stamina>10</Stamina>
       </Cost>
       <Effects type ="array">
         <Effect>

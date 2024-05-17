@@ -8,7 +8,7 @@ public partial class Settings : Node
 {
 	public WorldGenSettings WorldGenSettings;
 	public float GlobalVolume;
-    readonly string worldGenPath = "Settings/WorldGenSettings.xml";
+    readonly string worldGenPath = "user://Settings/WorldGenSettings.xml";
     public override void _Ready()
 	{
 		WorldGenSettings = LoadWorldgenSettings();
@@ -17,10 +17,10 @@ public partial class Settings : Node
 	private WorldGenSettings LoadWorldgenSettings()
 	{
 
-        if (File.Exists(worldGenPath))
+        if (Godot.FileAccess.FileExists(worldGenPath))
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(worldGenPath);
+            xmlDoc.Load(ProjectSettings.GlobalizePath(worldGenPath));
             XmlNodeList list = xmlDoc.GetElementsByTagName("WorldGenSettings");
             if(list.Count == 1)
             {
@@ -42,7 +42,7 @@ public partial class Settings : Node
 	{
         XmlSerializer serializer = new XmlSerializer(typeof(WorldGenSettings));
         // Create a StreamWriter to write to the specified file
-        using (StreamWriter writer = new StreamWriter(worldGenPath))
+        using (StreamWriter writer = new StreamWriter(ProjectSettings.GlobalizePath(worldGenPath)))
         {
             // Serialize the settings object to the file
             serializer.Serialize(writer, WorldGenSettings);

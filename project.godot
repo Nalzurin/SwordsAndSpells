@@ -21,6 +21,7 @@ AssetManager="*res://Scripts/AssetManager.cs"
 Logger="*res://Scripts/Debug/Logger.cs"
 GameManager="*res://Scripts/GameManager.cs"
 Settings="*res://Scripts/Settings.cs"
+MongoDbManager="*res://Scripts/MongoDBManager.cs"
 SaveSystem="*res://Scripts/SaveSystem.cs"
 
 [display]
@@ -33,6 +34,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="SwordsAndSpells"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [gui]
 

@@ -25,7 +25,7 @@ public abstract partial class BaseEntity : Resource, ITargetable
 
     
 
-    public BaseEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription","Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new Effects(), new Abilities(), new Actions(), new Characteristics()) { }
+    public BaseEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription","res://Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", new Effects(), new Abilities(), new Actions(), new Characteristics()) { }
     public BaseEntity(string iD, string entityName, string description, string spritePath, string targetType, Effects effects, Abilities abilities, Actions actions, Characteristics characteristics)
     {
         ID = iD;
@@ -38,4 +38,5 @@ public abstract partial class BaseEntity : Resource, ITargetable
         Actions = actions;
         Characteristics = characteristics;
     }
+
 }

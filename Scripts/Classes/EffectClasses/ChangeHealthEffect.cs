@@ -47,5 +47,10 @@ public class ChangeHealthEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
+    // DeepCopy method
+    public IEffect DeepCopy()
+    {
+        return new ChangeHealthEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 
 }

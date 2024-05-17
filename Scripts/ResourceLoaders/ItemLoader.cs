@@ -6,7 +6,9 @@ using System.Xml;
 
 public partial class ItemLoader : Node
 {
-    private const string ItemsFolder = "Assets/Items/";
+    const bool Export = true;
+    private const string UserItemsFolder = "user://Assets/Items/";
+    private const string ItemsFolder = "res://Assets/Items/";
     private AssetManager _assets;
 
     // Called when the node enters the scene tree for the first time.
@@ -18,18 +20,39 @@ public partial class ItemLoader : Node
     }
     private void LoadItems()
     {
-        string[] files = Directory.GetFiles(ItemsFolder, "*.xml");
+        string[] files;
+        if (Export)
+        {
+            files = DirAccess.GetFilesAt(UserItemsFolder);
+        }
+        else
+        {
+            files = DirAccess.GetFilesAt(ItemsFolder);
+        }
         foreach (string file in files)
         {
-            LoadItem(file);
+            if (file.EndsWith(".xml"))
+            {
+                LoadItem(file);
+            }
+            
         }
     }
     private void LoadItem(string filePath)
     {
         try
         {
+
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
+            if (Export)
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(UserItemsFolder + filePath));
+            }
+            else
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(ItemsFolder + filePath));
+            }
+            
 
             XmlNodeList itemNodes = xmlDoc.GetElementsByTagName("Item");
             foreach (XmlNode node in itemNodes)
@@ -92,7 +115,7 @@ public partial class ItemLoader : Node
 
         XmlNode spritePathNode = itemNode.SelectSingleNode("SpritePath");
         if (spritePathNode != null)
-            item.SpritePath = "Assets/Sprites/" +spritePathNode.InnerText;
+            item.SpritePath = spritePathNode.InnerText;
 
         // Process actions and effects if present
         ProcessActions(itemNode, item);

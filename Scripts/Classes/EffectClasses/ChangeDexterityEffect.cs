@@ -49,4 +49,9 @@ public class ChangeDexterityEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
+    // DeepCopy method
+    public IEffect DeepCopy()
+    {
+        return new ChangeDexterityEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

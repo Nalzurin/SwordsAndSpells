@@ -125,7 +125,6 @@ grow_end = 0.0
 thickness = 5
 
 [node name="TravelGUI" type="CanvasLayer" node_paths=PackedStringArray("InventoryButton", "CharacterButton", "JournalButton", "AbilitiesButton", "Inventory", "CharacterMenu", "AbilitiesContainer")]
-follow_viewport_enabled = true
 script = ExtResource("1_t408m")
 InventoryButton = NodePath("MarginContainer/GridContainer/TextureButton")
 CharacterButton = NodePath("MarginContainer/GridContainer/TextureButton2")
@@ -1282,6 +1281,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Reset"
 
+[connection signal="pressed" from="MarginContainer/GridContainer/TextureButton" to="." method="ToggleInventory"]
+[connection signal="pressed" from="MarginContainer/GridContainer/TextureButton2" to="." method="ToggleCharacterMenu"]
+[connection signal="pressed" from="MarginContainer/GridContainer/TextureButton4" to="." method="ToggleAbilitiesMenu"]
 [connection signal="mouse_entered" from="Inventory/VBoxContainer/Panel" to="Inventory" method="OnMouseEnter"]
 [connection signal="mouse_exited" from="Inventory/VBoxContainer/Panel" to="Inventory" method="OnMouseExit"]
 [connection signal="pressed" from="Inventory/VBoxContainer/Panel/HBoxContainer/Button" to="." method="ToggleInventory"]

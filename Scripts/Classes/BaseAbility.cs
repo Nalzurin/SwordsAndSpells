@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BaseAbility : IHasActions
 {
@@ -23,7 +24,7 @@ public class BaseAbility : IHasActions
         return Actions[index];
     }
 
-    public BaseAbility() : this("DummyPassiveAbilityID", "Dummy Ability Passive", "If you see this ability, something went wrong", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Vitality", true, new Dictionary<string, int> { {"Strength", 25 } }, new List<IEffect> { new ChangeHealthEffect() }, new List<BaseAction> { new BaseAction()}) { }
+    public BaseAbility() : this("DummyPassiveAbilityID", "Dummy Ability Passive", "If you see this ability, something went wrong", "res://Assets/Sprites/Items/Consumables/Food/Lemon.png", "Vitality", true, new Dictionary<string, int> { {"Strength", 25 } }, new List<IEffect> { new ChangeHealthEffect() }, new List<BaseAction> { new BaseAction()}) { }
     public BaseAbility(string _ID, string _AbilityName, string _AbilityDescription, string _SpritePath, string _Attribute, bool _IsActive, Dictionary<string,int> _Prerequisites, List<IEffect> _Effects, List<BaseAction> _Actions)
     {
         ID = _ID;
@@ -36,5 +37,5 @@ public class BaseAbility : IHasActions
         Effects = _Effects;
         Actions = _Actions;
     }
-
+ 
 }

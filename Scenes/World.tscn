@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6yl42ysv1rvb"]
+[gd_scene load_steps=9 format=3 uid="uid://c6yl42ysv1rvb"]
 
 [ext_resource type="Script" path="res://Scripts/WorldGeneration/PerlinNoise.cs" id="1_gfjo0"]
 [ext_resource type="Script" path="res://Scripts/WorldBeginScript.cs" id="1_w17dk"]
 [ext_resource type="Texture2D" uid="uid://cesyv6fxqck5" path="res://Assets/Sprites/Tilesets/placeholder_overworld.png" id="2_68cuc"]
 [ext_resource type="Texture2D" uid="uid://5jhrm2vlamfv" path="res://Assets/Sprites/Tilesets/placeholder_terrain_temperate.png" id="2_ld00m"]
 [ext_resource type="Script" path="res://Scenes/FPS_Counter.cs" id="5_ngky0"]
-[ext_resource type="PackedScene" uid="uid://br2abkd3r22df" path="res://Scenes/TravelGUI.tscn" id="6_loaqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g0fe"]
 texture = ExtResource("2_ld00m")
@@ -464,10 +463,9 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("1_gfjo0")
 tileMap = NodePath("../TileMap")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("6_loaqh")]
-follow_viewport_enabled = false
+[node name="FPS" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="FPS"]
 offset_left = 1362.0
 offset_top = 46.0
 offset_right = 1402.0

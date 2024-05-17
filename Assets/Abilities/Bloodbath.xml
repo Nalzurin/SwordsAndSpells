@@ -8,14 +8,14 @@
     <CharacterLevel>15</CharacterLevel>
     <Dexterity>50</Dexterity>
   </Prerequisites>
-  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+  <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
   <Attribute>Dexterity</Attribute>
   <Actions type="array">
     <Action>
       <ID>Ability_Bloodbath_Action</ID>
       <Name>Bloodbath</Name>
       <Description>Quickly Makes the enemy haemorrhage, rapidly losing their blood over the next 5 turns</Description>
-      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
       <TargetType>Enemy</TargetType>
       <Cost type="array">
         <Stamina>50</Stamina>

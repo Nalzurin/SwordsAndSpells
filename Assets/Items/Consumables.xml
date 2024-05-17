@@ -6,7 +6,7 @@
   <Description>A deliciously sweet apple</Description>
   <Rarity>Common</Rarity>
   <ItemLevel>0</ItemLevel>
-  <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+  <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
   <Uses>2</Uses>
   <Type>Food</Type>
   <Actions type="array">
@@ -14,7 +14,7 @@
       <ID>ConsumeAction</ID>
       <Name>Consume</Name>
       <Description>Consume the item</Description>
-      <SpritePath>Items/Consumables/Food/Apple_Red.png</SpritePath>
+      <SpritePath>res://Assets/Sprites/Items/Consumables/Food/Apple_Red.png</SpritePath>
       <TargetType>Self</TargetType>
       <Cost></Cost>
       <Effects type ="array">

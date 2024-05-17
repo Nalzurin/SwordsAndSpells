@@ -6,7 +6,9 @@ using System.Xml;
 
 public partial class BiomeLoader : Node
 {
-    private const string BiomesFolder = "Assets/Biomes/";
+    const bool Export = true;
+    private const string BiomesFolder = "res://Assets/Biomes/";
+    private const string UserBiomesFolder = "user://Assets/Biomes/";
     AssetManager assets;
     TileSet tileSet;
 	// Called when the node enters the scene tree for the first time.
@@ -17,11 +19,23 @@ public partial class BiomeLoader : Node
         assets.DebugListBiomes();
     }
 	void GetBiomes()
-	{
-        string[] files = Directory.GetFiles(BiomesFolder, "*.xml");
+    {
+        string[] files;
+        if (Export)
+        {
+            files = DirAccess.GetFilesAt(UserBiomesFolder);
+        }
+        else
+        {
+            files = DirAccess.GetFilesAt(BiomesFolder);
+        }
         foreach(string file in files)
         {
-            LoadBiome(file);
+            if (file.EndsWith(".xml"))
+            {
+                LoadBiome(file);
+            }
+            
         }
     }
     void LoadBiome(string FilePath)
@@ -29,7 +43,14 @@ public partial class BiomeLoader : Node
         try
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(FilePath);
+            if (Export)
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(UserBiomesFolder + FilePath));
+            }
+            else
+            {
+                xmlDoc.Load(ProjectSettings.GlobalizePath(BiomesFolder + FilePath));
+            }
 
             XmlNodeList biomeNodes = xmlDoc.GetElementsByTagName("BiomeAsset");
 
@@ -129,6 +150,7 @@ public partial class BiomeLoader : Node
         if (texturePathNode != null)
         {
             biome.TexturePath = texturePathNode.InnerText;
+           
         }
         XmlNode isWalkablePathNode = BiomeNode.SelectSingleNode("IsWalkable");
         if (isWalkablePathNode != null)

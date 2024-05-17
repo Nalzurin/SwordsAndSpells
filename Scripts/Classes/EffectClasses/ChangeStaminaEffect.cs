@@ -47,5 +47,8 @@ public class ChangeStaminaEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
-
+    public IEffect DeepCopy()
+    {
+        return new ChangeStaminaEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

@@ -49,5 +49,8 @@ public class ChangeStrengthEffect : IEffect
         IsHarmful = _IsHarmful;
         Source = _Source;
     }
-
+    public IEffect DeepCopy()
+    {
+        return new ChangeStrengthEffect(ID, EffectName, Description, Duration, Value, EffectType, IsHarmful, Source);
+    }
 }

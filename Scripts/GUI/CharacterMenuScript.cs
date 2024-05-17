@@ -79,6 +79,7 @@ public partial class CharacterMenuScript : PanelContainer
         gameManager = (GameManager)GetNode("/root/GameManager");
         assetManager = (AssetManager)GetNode("/root/AssetManager");
         player = gameManager.CurrentPlayer;
+        gameManager.StateChanged += StateSwitch;
         player.Characteristics.HealthChanged += UpdateHealth;
         player.Characteristics.StaminaChanged += UpdateStamina;
         player.Characteristics.ManaChanged += UpdateMana;
@@ -89,6 +90,13 @@ public partial class CharacterMenuScript : PanelContainer
         UpdateStamina();
         UpdateMana();
         UpdateAttributes();
+    }
+    public void StateSwitch(string state)
+    {
+        if (state == "COMBAT")
+        {
+            Close();
+        }
     }
     public void UpdateHealth()
     {
@@ -174,6 +182,15 @@ public partial class CharacterMenuScript : PanelContainer
     public void OnMouseExit()
     {
         isMouseOver = false;
+    }
+    public void Close()
+    {
+        player.Characteristics.HealthChanged -= UpdateHealth;
+        player.Characteristics.StaminaChanged -= UpdateStamina;
+        player.Characteristics.ManaChanged -= UpdateMana;
+        player.Characteristics.AttributesChanged -= UpdateAttributes;
+        gameManager.StateChanged -= StateSwitch;
+        QueueFree();
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)

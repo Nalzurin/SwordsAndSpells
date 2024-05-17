@@ -17,7 +17,7 @@
 	  <value>1</value>
 	</AltitudeRange>
 	<priority>1</priority>
-	<TexturePath>Assets/Sprites/Biomes/Desert.png</TexturePath>
+	<TexturePath>res://Assets/Sprites/Biomes/Desert.png</TexturePath>
   <IsWalkable>True</IsWalkable>
   </BiomeAsset>
 </Assets>

@@ -30,15 +30,15 @@ public partial class Characteristics : Node
     public int CharacterLevel { get; set; }
     public int HealthBase { get; private set; }
     public int HealthMax { get; private set; }
-    public int HealthCurrent { get; private set; }
+    public int HealthCurrent { get; set; }
     public Dictionary<int, AttributeModifier> HealthModifiers = new Dictionary<int, AttributeModifier>();
     public int StaminaBase { get; private set; }
     public int StaminaMax { get; private set; }
-    public int StaminaCurrent { get; private set; }
+    public int StaminaCurrent { get; set; }
     public Dictionary<int, AttributeModifier> StaminaModifiers = new Dictionary<int, AttributeModifier>();
     public int ManaBase { get; private set; }
     public int ManaMax { get; private set; }
-    public int ManaCurrent { get; private set; }
+    public int ManaCurrent { get; set; }
     public Dictionary<int, AttributeModifier> ManaModifiers = new Dictionary<int, AttributeModifier>();
     public int StrengthBase { get; private set; }
     public int StrengthCurrent { get; private set; }
@@ -77,6 +77,19 @@ public partial class Characteristics : Node
         {
             HealthCurrent = 0; // Clamp to 0
         }
+        if (parent is PlayerEntity player)
+        {
+            if(amount < 0)
+            {
+                player.Statistics.UpdateDamageTaken(-amount);
+            }
+            else
+            {
+                player.Statistics.UpdateHealthHealed(amount);
+            }
+        }
+
+        GD.Print("Health Changed "+parent.EntityName);
         EmitSignal(SignalName.HealthChanged);
         EmitSignal(SignalName.CharacteristicsChanged, "Player");
     }

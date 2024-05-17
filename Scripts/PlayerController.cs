@@ -3,23 +3,28 @@ using System;
 
 public partial class PlayerController : Node2D
 {
-	[Export]
-	public PlayerEntity PlayerData;
+    [Export]
+    public PlayerEntity PlayerData;
     [Export]
     Sprite2D PlayerSprite;
-	// Called when the node enters the scene tree for the first time.
-	GameManager GameManager;
+    // Called when the node enters the scene tree for the first time.
+    GameManager GameManager;
     TileMap _tileMap;
-	public override void _Ready()
-	{
+    public override void _Ready()
+    {
         GameManager = (GameManager)GetNode("/root/GameManager");
-       
+
         _tileMap = (TileMap)GetNode("/root/World/TileMap");
         PlayerData = GameManager.CurrentPlayer;
         PlayerSprite.Texture = PlayerData.GetSprite();
         SetStartingPosition();
         PlayerData.Inventory.InventoryChanged += SavePlayer;
+        GameManager.UpdateEntities += UpdatePlayer;
 
+    }
+    private void UpdatePlayer(Vector2I pos)
+    {
+        PlayerData.Effects.UpdateEffects();
     }
     private void SavePlayer()
     {
@@ -91,6 +96,7 @@ public partial class PlayerController : Node2D
             GameManager.EmitSignalEntitiesUpdate(_tileMap.LocalToMap((Vector2I)targetWorldPos));
             // Update player's position to the target position
             Position = targetWorldPos;
+            PlayerData.Statistics.UpdateStepsWalked(1);
             
         }
     }

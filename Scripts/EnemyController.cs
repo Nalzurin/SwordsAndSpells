@@ -32,6 +32,7 @@ public partial class EnemyController : Node2D
         GameManager.UpdateEntities -= AI_Move;
         GameManager.CurrentEnemyCount--;
         GameManager.CurrentWorld.SavedEntities.Remove((Vector2I)Position);
+        EnemyData = null;
         QueueFree();
     }
     private void SetPosition(Vector2I position)

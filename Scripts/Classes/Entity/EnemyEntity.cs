@@ -7,7 +7,7 @@ public partial class EnemyEntity : BaseEntity
 {
     public string Rarity { get; set; }
     public List<string> BiomeSpawns { get; set; }
-    public EnemyEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription", "Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", "Legendary",new List<string> { "Biome_Desert"}, new Effects(),  new Abilities(), new Actions(), new Characteristics())
+    public EnemyEntity() : this("DummyEntityID", "DummyEntity", "DummyDescription", "res://Assets/Sprites/Items/Consumables/Food/Lemon.png", "Dummy", "Legendary",new List<string> { "Biome_Desert"}, new Effects(),  new Abilities(), new Actions(), new Characteristics())
     {
         Effects.SetParent(this);
         Characteristics.SetParent(this);

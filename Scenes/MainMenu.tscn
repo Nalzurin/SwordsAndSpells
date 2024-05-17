@@ -192,11 +192,13 @@ text = "Worlds"
 [node name="Editor" type="Button" parent="CanvasLayer/Menu/HSplitContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"MainMenuButton"
+disabled = true
 text = "Editor"
 
 [node name="Settings" type="Button" parent="CanvasLayer/Menu/HSplitContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"MainMenuButton"
+disabled = true
 text = "Settings
 "
 
